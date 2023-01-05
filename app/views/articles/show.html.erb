@@ -1,0 +1,7 @@
+<div class="contenaire">
+  <h1><%=@article.titre%></h1>
+  <%= form_with url: commandes_path do %>
+  <%= hidden_field_tag 'article_id', @article.id %>
+  <%= submit_tag 'Acheter', class: 'btn btn-primary' %>
+<% end %>
+</div>

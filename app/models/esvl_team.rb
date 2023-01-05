@@ -1,0 +1,2 @@
+class EsvlTeam < ApplicationRecord
+end

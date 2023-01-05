@@ -1,0 +1,23 @@
+<div class="contenaire">
+  <h1>Toutes mes événements</h1>
+  <div class="list">
+    <%@events.each do |event| %>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%=event.nom%> - <%=event.nb_joueur_equipe%>c<%=event.nb_joueur_equipe%><%=event.genre%></h2>
+          <p>Prix: <strong> <%= humanized_money_with_symbol(event.price_cents) %></strong></p>
+          <p><%= event.date_event %></p>
+          <p><%=event.autre%>
+        </div>
+        <%= link_to "S'inscrire", new_event_event_team_path(event), class:"btn-show"%>
+      </div>
+    <%end%>
+  </div>
+  <%=link_to "Créer un évenement", new_event_path(), class:"btn, btn-primary"%>
+</div>
+
+<%# <%= form_with url: commandes_path do %>
+  <%# <%= hidden_field_tag 'article_id', @article.id %>
+  <%# <%= submit_tag 'Acheter', class: 'btn btn-primary' %>
+<%# <% end %>
