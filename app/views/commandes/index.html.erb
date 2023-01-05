@@ -1,0 +1,16 @@
+<div class="contenaire">
+  <h1>Toutes mes comandes</h1>
+  <div class="list">
+    <%@commandes.each do |commande| %>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%=commande.article.titre%></h2>
+          <p>Prix: <strong> <%= humanized_money_with_symbol(commande.amount) %></strong></p>
+          <p><%= commande.created_at.to_date %></p>
+          <p><%=commande.etat%>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

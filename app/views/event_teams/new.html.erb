@@ -1,0 +1,18 @@
+<div class="text-banner fermeture">
+  <h1><%=@event.nom%> </h1>
+  <p> <%=@event.nb_joueur_equipe%>c<%=@event.nb_joueur_equipe%> (<%= @event.genre%>) </p>
+</div>
+
+<h3>Créer son équipe</h3>
+  <div class="questions">
+    <%= simple_form_for ([@event, @team  ])  do |f| %>
+      <%= f.input :nom_equipe, label: "Nom d'équipe:", placeholder: "ESVL team" %>
+      <%= f.input :nb_joueur, label: "Nombre de Joueur dans l'équipe:", placeholder: "0" %>
+      <%= f.input :niveau, label:"Niveau moyen de l'équipe:", placeholder: "National 3" %>
+      <%= f.input :nom_capitaine, label:"Nom et prénom du capitaine:", placeholder: "Jean-Marie Potier" %>
+      <%= f.input :email_capitaine, label:"Email:", placeholder: "jmpotier@gmail.com" %>
+      <%= f.input :numero_capitaine, label:"Numéro de téléphone:", placeholder: "0612234323" %>
+      <%= f.input :joueurs, label:"Nom/prénom des coéquipiers:", placeholder: "Jacques Daniels, José Pet" %>
+      <%= f.submit label:"Inscrire et payer", class: 'btn btn-flat' %>
+    <% end %>
+  </div>

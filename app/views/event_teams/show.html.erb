@@ -1,0 +1,8 @@
+<p> Show</p>
+
+ <div class="bouton">
+    <%= form_with url: commandes_path do %>
+      <%= hidden_field_tag 'event_team_id', @team.id %>
+      <%= submit_tag "Payer l'inscription", class: 'btn btn-primary' %>
+    <% end %>
+  </div>

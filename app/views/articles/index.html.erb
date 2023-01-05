@@ -1,0 +1,40 @@
+<div class="contenaire">
+  <h1>Boutique du club</h1>
+  <div class="index-article">
+    <ul>
+      <% @articles.each do |article|%>
+        <%= link_to article_path(article) do%>
+        <div class="card-trip">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="card-trip-infos">
+            <div>
+              <h2><%=article.titre%></h2>
+              <p><%article.genre%></p>
+              <p><%article.taille_disponible%></p>
+            </div>
+            <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(article .price) %></h2>
+          </div>
+        </div>
+        <%end%>
+      <%end%>
+    </ul>
+  </div>
+  <h1>Evénements</h1>
+  <div class="index_event">
+    <ul>
+      <%@events.each do |event|%>
+        <%= link_to event_path(event) do%>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2><%=event.nom%></h2>
+            <p>Date : <%=event.date_event%></p>
+            <p>Nombre d'équipe : <%=event.nb_equipes%></p>
+            <p>Fermeture des inscriptions: <%=event.deadline_register%></p>
+          </div>
+        </div>
+        <%end%>
+      <%end%>
+    <ul>
+  </div>
+</div>
