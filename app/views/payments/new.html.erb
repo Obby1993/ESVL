@@ -1,24 +1,4 @@
-<%# <div class="container"> %>
-  <%# <div class="row py-4"> %>
-    <%# <div class="col"> %>
-      <%# <h1>Votre panier</h1> %>
-      <%# <%if %>
-      <%# <p>Vente de <strong><%= @commande.article.titre</strong> for <strong><%= humanized_money_with_symbol @commande.amount_cents</strong></p>  %>
-      <%# <button id="pay" class="btn btn-primary">Payer</button> %>
-      <%# # Commented for the lecture, remove comments. %>
-      <%# <script src="https://js.stripe.com/v3/"></script> %>
-      <%# <script> %>
-        <%# const paymentButton = document.getElementById('pay'); %>
-        <%# paymentButton.addEventListener('click', () => { %>
-          <%# const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY']'); %>
-          <%# stripe.redirectToCheckout({ %>
-            <%# sessionId: '<%= @commande.checkout_session_id' %>
-          <%# }); %>
-        <%# }); %>
-      <%# </script> %>
-    <%# </div>
-  </div>
-</div> %>
+
 <div class="container">
   <div class="row py-4">
     <div class="col">

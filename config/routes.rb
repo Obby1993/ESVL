@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :event_teams, only: [:new, :create, :destroy, :edit, :update, :show]
   end
   resources :articles
-  resources :commandes, only: [:index, :create] do
+  resources :commandes, only: [:index, :create, :show] do
     resources :payments, only: :new
   end
   resources :esvl_teams
