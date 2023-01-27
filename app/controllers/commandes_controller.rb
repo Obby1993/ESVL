@@ -2,7 +2,7 @@ class CommandesController < ApplicationController
   def create
     if params[:event_team_id].nil?
       article = Article.find(params[:article_id])
-      order = Commande.create!( article: article, amount_cents: article.price, etat: 'en attente', user_id: current_user.id)
+      order = Commande.create!(article: article, amount_cents: article.price, etat: 'en attente', user_id: current_user.id)
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
@@ -23,6 +23,7 @@ class CommandesController < ApplicationController
       )
       order.update(checkout_session_id: session.id)
       redirect_to new_commande_payment_path(order.id)
+
     else
       team = EventTeam.find(params[:event_team_id])
       article = Article.where(event_id: team.event.id).first
@@ -56,6 +57,10 @@ class CommandesController < ApplicationController
     else
       @commandes = current_user.commandes
     end
+  end
+
+  def show
+    @order = current_user.orders.find(params[:id])
   end
 
   # def checkout_session (model)
