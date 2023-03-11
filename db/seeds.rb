@@ -7,9 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 Article.destroy_all
 Commande.destroy_all
+Event.destroy_all
 User.destroy_all
 EsvlTeam.destroy_all
-Event.destroy_all
 
 tshirt = Article.new(titre: "tee-shirt Errea Sponsor ESVL", taille_disponible:"S, M, L, XL", genre: "Homme", price_cents: 1700)
 jogging = Article.new(titre: "Jogging échauffement ESVL", taille_disponible:"S, M, L, XL", genre: "Homme", price_cents: 2250)

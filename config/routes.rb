@@ -14,5 +14,11 @@ Rails.application.routes.draw do
   end
   resources :esvl_teams
 
+  post "articles/add_to_panier/:id", to: "articles#add_to_panier", as: "add_to_panier"
+  post "articles/remove_from_panier/:id", to: "articles#remove_from_panier", as: "remove_from_panier"
+
+  get "success", to: "commande#success"
+  get "cancel", to: "commande#cancel"
+
   mount StripeEvent::Engine, at: '/webhook'
 end

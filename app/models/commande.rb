@@ -1,5 +1,5 @@
 class Commande < ApplicationRecord
-  belongs_to :article
+  has_many :articles
   belongs_to :event_team, optional: true
   monetize :amount_cents
 end

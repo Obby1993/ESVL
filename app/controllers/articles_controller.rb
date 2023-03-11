@@ -1,6 +1,18 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+  def add_to_panier
+    id = params[:id].to_i
+    session[:panier] << id
+    redirect_to articles_path()
+  end
+
+  def remove_from_panier
+    id = params[:id].to_i
+    session[:panier].delete(id)
+    redirect_to articles_path()
+  end
+
   def index
     @articles = Article.all
     @events = Event.all
@@ -37,4 +49,9 @@ class ArticlesController < ApplicationController
     @article.destroy
     redirect_to articles_path(), status: :see_other
   end
+
+  def article_params
+    params.require(:article).permit(:titre, :price, :price_cents, :currency)
+  end
+
 end
