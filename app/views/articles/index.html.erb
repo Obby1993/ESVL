@@ -1,3 +1,6 @@
+  <script src="https://js.stripe.com/v3/"></script>
+
+
 <div class="contenaire">
   <h1>Boutique du club</h1>
   <div class="index-article">
@@ -31,7 +34,7 @@
     <%end%>
     <%if @panier.present?%>
       <%=button_to "Acheter", commandes_path, remote: true, data: { disable_with: "validating..."} %>
-    <%=@panier.collect { |item| item.to_builder.attributes! }%>
+      <%=@panier.collect { |item| item.to_builder.attributes! }%>
     <%end%>
   </div>
   <h1>Evénements</h1>

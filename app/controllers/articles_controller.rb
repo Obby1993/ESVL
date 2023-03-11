@@ -51,7 +51,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:titre, :price, :price_cents, :currency)
+    params.require(:article).permit(:titre, :price, :currency)
   end
 
 end

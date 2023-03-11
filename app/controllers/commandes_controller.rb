@@ -1,15 +1,17 @@
 class CommandesController < ApplicationController
   def create
     # if params[:event_team_id].nil?
-      @session = Stripe::Checkout::Session.create(
+      @session = Stripe::Checkout::Session.create({
         payment_method_types: ['card'],
         line_items: @panier.collect { |item| item.to_builder.attributes! },
         mode: 'payment',
-        success_url: success_url,
+        success_url: success_url + "?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: cancel_url,
-      )
-      order.update(checkout_session_id: session.id)
-      redirect_to new_commande_payment_path(order.id)
+      })
+
+      # redirect_to @session.url
+      # order.update(checkout_session_id: session.id)
+      # redirect_to new_commande_payment_path(order.id)
 
     # else
     #   team = EventTeam.find(params[:event_team_id])
@@ -19,7 +21,7 @@ class CommandesController < ApplicationController
     #     payment_method_types: ['card'],
     #     line_items: [{
     #       price_data: {
-    #         unit_amount: team.event.price_cents,
+    #         unit_amount: team.event.price,
     #         currency: 'eur',
     #         product_data: {
     #           name: team.nom_equipe,
@@ -68,12 +70,12 @@ class CommandesController < ApplicationController
 
   # def checkout_session (model)
     # model = event_teams.find(params[:event_teams_id])
-    #   order = Commande.create!(article: team, amount_cents: team.price, etat: 'en attente', user_id: current_user.id)
+    #   order = Commande.create!(article: team, amount_cents: team.price_cent, etat: 'en attente', user_id: current_user.id)
     #   session = Stripe::Checkout::Session.create(
     #     payment_method_types: ['card'],
     #     line_items: [{
     #       price_data: {
-    #         unit_amount: team.price_cents,
+    #         unit_amount: team.snts,
     #         currency: 'eur',
     #         product_data: {
     #           name: team.titre,

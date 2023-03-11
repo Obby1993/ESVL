@@ -11,13 +11,13 @@ Event.destroy_all
 User.destroy_all
 EsvlTeam.destroy_all
 
-tshirt = Article.new(titre: "tee-shirt Errea Sponsor ESVL", taille_disponible:"S, M, L, XL", genre: "Homme", price_cents: 1700)
-jogging = Article.new(titre: "Jogging échauffement ESVL", taille_disponible:"S, M, L, XL", genre: "Homme", price_cents: 2250)
-inscription_tournoi = Article.new(titre: "Inscription tournoi de l'ascension 4c4 Mixte", genre: "mixte", price_cents: 4000)
+# tshirt = Article.new(titre: "tee-shirt Errea Sponsor ESVL", taille_disponible:"S, M, L, XL", genre: "Homme", price: 1700)
+# jogging = Article.new(titre: "Jogging échauffement ESVL", taille_disponible:"S, M, L, XL", genre: "Homme", price: 2250)
+# inscription_tournoi = Article.new(titre: "Inscription tournoi de l'ascension 4c4 Mixte", genre: "mixte", price: 4000)
 
-tshirt.save
-jogging.save
-inscription_tournoi.save
+# tshirt.save
+# jogging.save
+# inscription_tournoi.save
 
 prenat_feminin = EsvlTeam.new(année: 2022, division: "R1", genre: "féminin", coach: "Mélanie", joueurs: "Julie Lopez, Laura Pasco, Catherine Martinet, Anna Montana, Brit Kendal, Luna Del Sol", autre: "Saison en cours")
 prenat_feminin.save
