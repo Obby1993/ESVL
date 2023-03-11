@@ -6,7 +6,7 @@
       <%if @commande.event_team.nil?%>
         <p>Vente de <strong><%= @commande.article.titre %></strong> for <strong><%= humanized_money_with_symbol @commande.amount_cents%></strong></p>
       <%else%>
-        <p>Vente de <strong><%= @commande.event_team.nom_equipe %></strong> for <strong><%= humanized_money_with_symbol @commande.amount_cents %></strong></p>
+        <p>              Vente de <strong><%= @commande.event_team.nom_equipe %></strong> for <strong><%= humanized_money_with_symbol @commande.amount_cents %></strong></p>
       <%end%>
       <button id="pay" class="btn btn-primary">Payer</button>
       <%# # Commented for the lecture, remove comments. %>

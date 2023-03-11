@@ -1,0 +1,16 @@
+<div class="container py-5" style="margin-top: 40px">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Crée ton article</h3>
+
+        <%= simple_form_for @article  do |a| %>
+          <%= a.input :titre, placeholder: 'Nom du produit' %>
+          <%= a.input :price, placeholder: "Prix du produit" %>
+          <%# <%= e.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= a.submit class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

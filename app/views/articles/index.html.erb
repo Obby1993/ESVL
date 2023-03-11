@@ -1,3 +1,6 @@
+  <script src="https://js.stripe.com/v3/"></script>
+
+
 <div class="contenaire">
   <h1>Boutique du club</h1>
   <div class="index-article">
@@ -14,10 +17,25 @@
             </div>
             <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(article .price) %></h2>
           </div>
+          <%= button_to "Ajouter au panier", add_to_panier_path(article) %>
         </div>
         <%end%>
       <%end%>
+      <%=link_to "Créer un ARTICLE", new_article_path(), class:"btn, btn-primary"%>
     </ul>
+  </div>
+  <h2>Mon panier</h2>
+  <div class="index-article">
+    <% @panier.each do |article| %>
+      <p><%=article.titre%> <%= article.genre%> <%= article.price%> /// <%=article.stripe_product_id%>     ///   <%= article.stripe_price_id %></p>
+      <%if @panier.include?(article) %>
+        <%= button_to "Supprimer", remove_from_panier_path(article), methode: :delete %>
+      <%end%>
+    <%end%>
+    <%if @panier.present?%>
+      <%=button_to "Acheter", commandes_path, remote: true, data: { disable_with: "validating..."} %>
+      <%=@panier.collect { |item| item.to_builder.attributes! }%>
+    <%end%>
   </div>
   <h1>Evénements</h1>
   <div class="index_event">
