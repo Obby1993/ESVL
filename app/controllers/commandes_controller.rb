@@ -9,7 +9,7 @@ class CommandesController < ApplicationController
         cancel_url: cancel_url,
       })
 
-      redirect_to @session.url, allow_other_host: true
+      # redirect_to @session.url, allow_other_host: true
       # order.update(checkout_session_id: session.id)
       # redirect_to new_commande_payment_path(order.id)
 
@@ -40,10 +40,10 @@ class CommandesController < ApplicationController
         # + "?session_id={CHECKOUT_SESSION_ID}"
       })
 
+    end
       redirect_to @session.url, allow_other_host: true
     #   order.update(checkout_session_id: session.id)
     #   redirect_to new_commande_payment_path(order.id)
-    end
   end
 
   def success
