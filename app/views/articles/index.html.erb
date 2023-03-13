@@ -18,8 +18,8 @@
             <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(article .price) %></h2>
           </div>
         </div>
-          <%= button_to "Ajouter au panier", add_to_panier_path(article) %>
         <%end%>
+          <%= button_to "Ajouter au panier", add_to_panier_path(article) %>
       <%end%>
       <%=link_to "Créer un ARTICLE", new_article_path(), class:"btn, btn-primary"%>
     </ul>
