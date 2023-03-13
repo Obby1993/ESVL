@@ -1,6 +1,6 @@
 class CommandesController < ApplicationController
   def create
-    # if params[:event_team_id].nil?
+    if params[:event_team_id].nil?
       @session = Stripe::Checkout::Session.create({
         payment_method_types: ['card'],
         line_items: @panier.collect { |item| item.to_builder.attributes! },
@@ -9,35 +9,41 @@ class CommandesController < ApplicationController
         cancel_url: cancel_url,
       })
 
-      # redirect_to @session.url
+      redirect_to @session.url, allow_other_host: true
       # order.update(checkout_session_id: session.id)
       # redirect_to new_commande_payment_path(order.id)
 
-    # else
-    #   team = EventTeam.find(params[:event_team_id])
+    else
+      team = EventTeam.find(params[:event_team_id])
     #   article = Article.where(event_id: team.event.id).first
     #   order = Commande.create!(article: article, event_team: team, amount_cents: team.event.price, etat: 'en attente', user_id: current_user.id)
-    #   session = Stripe::Checkout::Session.create(
-    #     payment_method_types: ['card'],
-    #     line_items: [{
-    #       price_data: {
-    #         unit_amount: team.event.price,
-    #         currency: 'eur',
-    #         product_data: {
-    #           name: team.nom_equipe,
-    #           description: team.niveau
-              # images: [team.photo_url],
-    #         }
-    #       },
-    #       quantity: 1
-    #     }],
-    #     mode: 'payment',
-    #     success_url: commandes_url(order),
-    #     cancel_url: commandes_url(order)
-    #   )
+      @session = Stripe::Checkout::Session.create(
+        {
+          success_url: success_url ,
+          cancel_url: cancel_url,
+          mode: 'payment',
+          payment_method_types: ['card'],
+          line_items: [{
+            quantity: 1,
+            price_data: {
+              currency: team.event.article.currency,
+              unit_amount: team.event.article.price,
+              product_data: {
+                name: team.event.article.titre,
+                description: team.niveau
+                # images: [team.photo_url],
+              }
+            }
+          }],
+
+
+        # + "?session_id={CHECKOUT_SESSION_ID}"
+      })
+
+      redirect_to @session.url, allow_other_host: true
     #   order.update(checkout_session_id: session.id)
     #   redirect_to new_commande_payment_path(order.id)
-    # end
+    end
   end
 
   def success

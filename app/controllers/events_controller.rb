@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     @event.user = current_user
     if @event.save!
       redirect_to events_path()
-      @article = Article.create(event_id: @event.id, titre: @event.nom, price_cents: @event.price_cents, remarque: "#{@event.nb_joueur_equipe} c #{@event.nb_joueur_equipe} #{@event.genre}")
+      @article = Article.create(event_id: @event.id, titre: @event.nom, price: @event.price_cents, remarque: "#{@event.nb_joueur_equipe} c #{@event.nb_joueur_equipe} #{@event.genre}")
     else
       render :new, status: :unprocessable_entity
     end
