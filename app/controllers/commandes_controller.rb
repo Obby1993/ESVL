@@ -41,7 +41,7 @@ class CommandesController < ApplicationController
       })
 
     end
-      redirect_to @session.url, allow_other_host: true
+    redirect_to @session.url, allow_other_host: true
     #   order.update(checkout_session_id: session.id)
     #   redirect_to new_commande_payment_path(order.id)
   end
