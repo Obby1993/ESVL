@@ -1,22 +1,18 @@
 class CommandesController < ApplicationController
   def create
     if params[:event_team_id].nil?
-      @session = Stripe::Checkout::Session.create({
-        payment_method_types: ['card'],
-        line_items: @panier.collect { |item| item.to_builder.attributes! },
-        mode: 'payment',
-        success_url: success_url + "?session_id={CHECKOUT_SESSION_ID}",
-        cancel_url: cancel_url,
-      })
-
-      # redirect_to @session.url, allow_other_host: true
-      # order.update(checkout_session_id: session.id)
-      # redirect_to new_commande_payment_path(order.id)
+      @session = Stripe::Checkout::Session.create(
+        {
+          payment_method_types: ['card'],
+          line_items: @panier.collect { |item| item.to_builder.attributes! },
+          mode: 'payment',
+          success_url: success_url + "?session_id={CHECKOUT_SESSION_ID}",
+          cancel_url: cancel_url,
+        }
+      )
 
     else
       team = EventTeam.find(params[:event_team_id])
-    #   article = Article.where(event_id: team.event.id).first
-    #   order = Commande.create!(article: article, event_team: team, amount_cents: team.event.price, etat: 'en attente', user_id: current_user.id)
       @session = Stripe::Checkout::Session.create(
         {
           success_url: success_url ,
@@ -34,16 +30,13 @@ class CommandesController < ApplicationController
                 # images: [team.photo_url],
               }
             }
-          }],
-
-
-        # + "?session_id={CHECKOUT_SESSION_ID}"
-      })
+          }]
+          # + "?session_id={CHECKOUT_SESSION_ID}"
+        }
+      )
 
     end
     redirect_to @session.url, allow_other_host: true
-    #   order.update(checkout_session_id: session.id)
-    #   redirect_to new_commande_payment_path(order.id)
   end
 
   def success
@@ -73,29 +66,4 @@ class CommandesController < ApplicationController
   def show
     @order = current_user.orders.find(params[:id])
   end
-
-  # def checkout_session (model)
-    # model = event_teams.find(params[:event_teams_id])
-    #   order = Commande.create!(article: team, amount_cents: team.price_cent, etat: 'en attente', user_id: current_user.id)
-    #   session = Stripe::Checkout::Session.create(
-    #     payment_method_types: ['card'],
-    #     line_items: [{
-    #       price_data: {
-    #         unit_amount: team.snts,
-    #         currency: 'eur',
-    #         product_data: {
-    #           name: team.titre,
-    #           description: team.remarque
-    #           # images: [team.photo_url],
-    #         }
-    #       },
-    #       quantity: 1
-    #     }],
-    #     mode: 'payment',
-    #     success_url: commandes_url(order),
-    #     cancel_url: commandes_url(order)
-    #   )
-    #   order.update(checkout_session_id: session.id)
-    #   redirect_to new_commande_payment_path(order.id)
-  # end
 end

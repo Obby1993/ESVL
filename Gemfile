@@ -29,6 +29,8 @@ gem "jbuilder"
 
 gem 'money-rails'
 
+gem 'rack-cors'
+
 gem 'stripe'
 
 gem 'stripe_event'
