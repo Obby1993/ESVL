@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   has_many :commandes, dependent: :destroy
+  has_many_attached :photos
   belongs_to :event, optional: true
 
   monetize :price, as: :price_cents

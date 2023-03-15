@@ -7,7 +7,7 @@
         <%= simple_form_for @article  do |a| %>
           <%= a.input :titre, placeholder: 'Nom du produit' %>
           <%= a.input :price, placeholder: "Prix du produit" %>
-          <%# <%= e.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= a.input :photos, as: :file, input_html: { multiple: true }%>
           <%= a.submit class: 'btn btn-flat' %>
         <% end %>
       </div>
