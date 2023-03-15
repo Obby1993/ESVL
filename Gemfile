@@ -34,6 +34,8 @@ gem 'rack-cors'
 gem 'stripe'
 
 gem 'stripe_event'
+
+gem "cloudinary"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
