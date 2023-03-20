@@ -13,7 +13,8 @@
           <%= e.input :autre, placeholder: 'Informations complémentaires' %>
           <%= e.input :nb_joueur_equipe, placeholder: 'Nombre de joueur par équipe' %>
           <%= e.input :price_cents, placeholder: "Prix de l'inscription" %>
-          <%# <%= e.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= e.input :photo, as: :file %>
+          <%# input_html: { multiple: true } %>
           <%= e.submit class: 'btn btn-flat' %>
         <% end %>
       </div>

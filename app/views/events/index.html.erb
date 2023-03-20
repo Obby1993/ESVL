@@ -3,7 +3,7 @@
   <div class="list">
     <%@events.each do |event| %>
       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-product-infos">
           <h2><%=event.nom%> - <%=event.nb_joueur_equipe%>c<%=event.nb_joueur_equipe%><%=event.genre%></h2>
           <p>Prix: <strong> <%= humanized_money_with_symbol(event.price_cents) %></strong></p>
@@ -11,6 +11,7 @@
           <p><%=event.autre%>
         </div>
         <%= link_to "S'inscrire", new_event_event_team_path(event), class:"btn-show"%>
+        <%= button_to "Supprimer", event_path(event), method: :delete, class:"btn-show"%>
       </div>
     <%end%>
   </div>

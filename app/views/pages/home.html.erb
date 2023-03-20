@@ -1,2 +1,109 @@
+<div class="contenaire">
+
+
+  <div class="home">
+    <div class="partie", id="banner">
+      <div class="barre">
+        <ul id="ligne">
+          <li class="valeur", id="club">LE CLUB</li>
+          <li class="valeur">Valeur 1 <img class="deco" src="ligne_boule.png" alt="décoration" /></li>
+          <li class="valeur">Valeur 2</li>
+          <li class="valeur">Valeur 3</li>
+          <li class="valeur">Valeur 4</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="partie", id="event">
+    <div>
+      <h1>PROCHAINS EVENEMENTS</h1>
+      <div id="next">
+        <div class="image_next"
+              style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @ordres[0].photo.key, crop: :fill %>')">
+          <%# <%raise%>
+          <%# <% if @ordres[0].photo.key? %>
+            <%# <%= image_tag("https://res.cloudinary.com/degk1wtuh/image/upload/v1678899875/esvl/esvl_f3vidq.jpg", width: 400, height: 300, crop: :fill) %>
+
+          <%# <% else %>
+            <%# <%=  cl_image_tag  @ordres[0].photo.key, id:"image_event_0"%>
+          <%# <% end %>
+          <p class="date_event"><%=@ordres[0].date_event.to_s.to_date%></p>
+        </div>
+        <div class="info_next">
+          <h2><%=@ordres[0].nom%></h2>
+          <p><%=@ordres[0].autre%></p>
+          <%=link_to "Voir événement", event_path(@ordres[0]), class:"link_next"%>
+        </div>
+      </div>
+      <div class="next3">
+        <%@ordres[1..3].each do |event| %>
+          <div class="events_next3">
+            <div class="image_next1"
+              style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key, crop: :fill %>')">
+              <p class="date_event"><%=event.date_event%></p>
+            </div>
+            <div class="info_next1">
+              <h3><%=event.nom%></h3>
+              <p class="short_description"><%=event.autre%></p>
+              <%=link_to "Voir événement", event_path(event), class:"link_next1"%>
+            </div>
+          </div>
+         <%end%>
+      </div>
+      <%= link_to "Voir tous les événements", events_path(), class: "button"%>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="partie", id="histoire">
+    <h1 id="titre_histoire">HISTOIRE DU CLUB</h1>
+    <div class="articles">
+      <div class="article_histoire">
+        <div class="texte_article">
+          <h2>1990 CREATION DU CLUB ESVL VOLLEY</h2>
+          <p>Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le poème.</p>
+        </div>
+        <div class="image_article"></div>
+      </div>
+      <div class="article_histoire">
+        <div  id="second_article"></div>
+        <div class="texte_article">
+          <h2>AGE D'OR DE L'ESVL</h2>
+          <p>Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le poème.</p>
+        </div>
+      </div>
+      <div class="article_histoire">
+        <div class="texte_article">
+          <h2>CREATION DE LA SECTION BEACH VOLLEY</h2>
+          <p>Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le poème.</p>
+        </div>
+        <div class="image_article"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="partie">
+    <h1>ORGANIGRAMME</h1>
+    <div class="employé">
+      <h3>COMITE DE DIRECTION</h3>
+      <div class="trombinoscope">
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<p>Find me in app/views/pages/home.html.erb </p>

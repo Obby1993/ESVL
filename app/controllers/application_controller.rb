@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :initialize_session
   before_action :load_panier
 
+
+
   private
 
   def initialize_session

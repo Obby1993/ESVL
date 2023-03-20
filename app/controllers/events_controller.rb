@@ -33,6 +33,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path(), status: :see_other
   end
@@ -40,6 +41,12 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:nom, :nb_equipes, :genre, :nb_joueur_equipe, :date_event, :deadline_register, :price_cents)
+    params.require(:event).permit(:nom, :nb_equipes, :genre, :nb_joueur_equipe, :date_event, :deadline_register, :price_cents, :photo, :autre)
+  end
+
+  def ordre_events
+    @events.sort do |event1, event2|
+      event1.date_event <=> event2.date_event
+    end
   end
 end
