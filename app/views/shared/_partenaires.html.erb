@@ -39,18 +39,18 @@
         <% else %>
           <div class="carousel-item active slide">
             <%# <img src="..." class="d-block w-100" alt="..."> %>
-            <% @partenaires_year.slice(0..2).each do |logo|%>
+            <% @partenaires_year.each do |logo|%>
               <%= cl_image_tag logo.photo.key, height: 150, width: 150, crop: :fill, class: "image_partenaire" %>
             <% end %>
           </div>
-          <%@partenaires_year.slice(3...).each_slice(3) do |slide| %>
-            <div class="carousel-item slide">
+          <%# <%@partenaires_year.slice(3...).each_slice(3) do |slide| %>
+            <%# <div class="carousel-item slide"> %>
               <%# <img src="..." class="d-block w-100" alt="..."> %>
-              <%slide.each do |partenaire| %>
-                <%= cl_image_tag partenaire.photo.key, height: 150, width: 150, crop: :fill, class: "image_partenaire" %>
-              <% end %>
-            </div>
-          <%end%>
+              <%# <%slide.each do |partenaire| %>
+                <%# <%= cl_image_tag partenaire.photo.key, height: 150, width: 150, crop: :fill, class: "image_partenaire" %>
+              <%# <% end %>
+            <%# </div>  %>
+          <%# <%end%>
         <% end %>
       </div>
 
