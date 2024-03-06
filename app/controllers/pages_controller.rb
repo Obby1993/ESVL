@@ -30,7 +30,7 @@ class PagesController < ApplicationController
     # partenaires
     @partenaires = Partenaire.all
     @partenaires_year = @partenaires.select { |partenaire| (partenaire.année.year == DateTime.now.year) }
-    @partenaires_year_past = @partenaires.select { |partenaire| (partenaire.année.year == DateTime.now.year-1) }
+    # @partenaires_year_past = @partenaires.select { |partenaire| (partenaire.année.year == DateTime.now.year-1) }
   end
 
 
