@@ -1,0 +1,19 @@
+<div class="container py-5" style="margin-top: 40px">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Ajouter un partenaire:</h3>
+
+        <%= simple_form_for @partenaire  do |partenaire| %>
+          <%= partenaire.input :année, placeholder: 'Année du partenariat' %>
+          <%= partenaire.input :entreprise, placeholder: "Nom de l'entreprise" %>
+          <%= partenaire.input :contact, placeholder: "Nom et prénom du contact" %>
+          <%= partenaire.input :numero, placeholder: 'Téléphone du contact' %>
+          <%= partenaire.input :email, placeholder: 'Email du contact' %>
+          <%= partenaire.input :photo, as: :file %>
+          <%= partenaire.submit class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

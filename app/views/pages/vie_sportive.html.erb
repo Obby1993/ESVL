@@ -1,0 +1,48 @@
+
+
+<div class="contenaire">
+   <div class="partie_banner">
+  <div class="partie", id="banner"></div>
+  <div class="partie_h4">
+    <h4>RETROUVEZ ICI<BR>L'ACTUALITE SPORTIVE<BR>DE VOTRE CLUB</h4>
+  </div>
+ </div>
+  <div class="barre">
+      <ul id="ligne">
+        <li class="valeur", id="page_active">VIE SPORTIVE</li>
+        <li class="valeur"><a href="#les_equipes_esvl">LES EQUIPES</a></li>
+        <%# <img class="deco" src="../../assets/images/ligne_boule.png" alt="décoration" /> %>
+        <li class="valeur"><a href="#next_games">LES PROCHAINS MATCHS</a></li>
+        <li class="valeur"><a href="https://www.ffvbbeach.org/ffvbapp/resu/vbspo_calendrier.php?saison=2022/2023&codent=LICA&poule=POM">RESULTAT</a></li>
+      </ul>
+    </div>
+
+<div id="les_equipes_esvl">
+  <h1 class=titre_partie>LES EQUIPES</h1>
+
+  <div class="row justify-content-center div_recherche">
+    <div class=" my-3 barre_recherche">
+      <%= form_with url: vie_sportive_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control recherche",
+              placeholder: "Filtre les équipes (Jeune, Sénior, Division, Nom du coach, Féminin, Masculin)"
+          %>
+        <%= submit_tag "Rechercher", name: "", class: "button" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="esvl_teams">
+    <% if @esvl_teams %>
+      <%@esvl_teams.each do |team|%>
+        <%=render "shared/esvl_team", esvl_team: team%>
+      <% end %>
+    <%else%>
+      <em>Désolé, nous n'avons pas trouvé d'équipe correspondant à votre recherche.</em>
+    <% end %>
+  </div>
+  <div id="next_games">
+    <%=render "shared/nextgames", esvl_teams: @esvl_teams%>
+  </div>
+</div>

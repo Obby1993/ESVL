@@ -1,0 +1,21 @@
+<div class="container py-5" style="margin-top: 40px">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Ajoute un créneau d'entrainement</h3>
+
+        <%= simple_form_for @entrainement  do |e| %>
+          <%= e.collection_select :esvl_team_id, @esvl_teams, :id, :division, prompt: "Choisissez une équipe de l'ESVL" %>
+          <%= e.input :jour, placeholder: "Jour de l'entrainement", collection: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche" ] %>
+          <%= e.input :horaire_debut, as: :time, placeholder: 'Heure du début' %>
+          <%= e.input :horaire_fin,  as: :time, placeholder: "Heure de fin" %>
+          <%= e.collection_select :gymnase_id, @gymnases, :id, :nom, prompt: "Choisissez un gymnase" %>
+
+
+
+          <%= e.submit class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

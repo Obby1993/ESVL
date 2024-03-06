@@ -1,0 +1,37 @@
+    <h1 class="titre_partie">PROCHAINS EVENEMENTS</h1>
+    <div id="event">
+      <%if @ordres.length === 1 %>
+        <div id="next">
+          <div class="image_next"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @ordres[0].photo.key, crop: :fill %>')">
+            <p class="date_event"><%=@ordres[0].date_event.strftime("%d/%m/%Y")%></p>
+          </div>
+          <div class="info_next">
+            <h2><%=@ordres[0].nom%></h2>
+            <p><%=@ordres[0].autre%></p>
+            <%=link_to "Voir événement", event_path(@ordres[0]), class:"button", id:"link_next"%>
+          </div>
+        </div>
+      <% elsif  @ordres.length > 1 %>
+        <div id="next">
+          <div class="image_next"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @ordres[0].photo.key, crop: :fill %>')">
+            <p class="date_event"><%=@ordres[0].date_event.strftime("%d/%m/%Y")%></p>
+          </div>
+          <div class="info_next">
+            <h2><%=@ordres[0].nom%></h2>
+            <p><%=@ordres[0].autre%></p>
+            <%=link_to "Voir événement", event_path(@ordres[0]), class:"button", id:"link_next"%>
+          </div>
+        </div>
+
+        <div class="next3">
+          <%= render "shared/next3event", ordres: @ordres %>
+        </div>
+
+      <%else%>
+        <p>Pas d'événement prévu ! </p>
+
+      <%end%>
+      <%= link_to "Voir tous les événements", events_path(), class: "button"%>
+  </div>

@@ -1,0 +1,47 @@
+.photo-info {
+  width: 80%;
+  margin: 10px auto 60px auto;
+  justify-content: space-around;
+  text-align: center;
+}
+
+
+.lien-equipe{
+  width: 60%;
+  margin: 0px auto 60px auto;
+  display: flex;
+}
+
+.boutons{
+  display: flex;
+justify-content: space-around;
+width: 100%;}
+
+
+@media screen and (max-width: 850px)  {
+  .photo-info {
+    display: block;
+  }
+  .info-equipe {
+    width: 60%;
+    margin: 50px auto;
+  }
+  #show-team {
+    width: 125px;
+    text-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 851px)  {
+  .photo-info {
+    display: flex;
+  }
+  .info-equipe {
+
+    width: 30%;
+  }
+  #show-team {
+    width: 30%;
+    text-wrap: wrap;
+  }
+}

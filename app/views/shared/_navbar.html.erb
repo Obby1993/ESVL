@@ -1,45 +1,100 @@
-<div class="navbar">
-  <div class="menu">
-   <ul class="list">
-      <li class="onglet active">
-        <%= link_to "Acceuil", articles_path, class: "nav-link" %>
-      </li>
-      <li class="onglet">
-        <%= link_to "Le club",  class: "nav-link" %>
-      </li>
-      <li class="onglet">
-        <%= link_to "Vie Sportive",  class: "nav-link" %>
-      </li>
-      <li class="onglet">
-        <%= link_to "Boutique", articles_path, class: "nav-link" %>
-      </li>
-      <li class="onglet">
-        <%= link_to "Début de saison", class: "nav-link" %>
-      </li>
-      <li class="onglet", id="last">
-        <%= link_to "Contact", class: "nav-link" %>
-      </li>
-    </ul>
+
+<div class="navbar" data-controller="navbar">
+  <div class="logo-navbar">
+    <%= image_tag('logo_esvl_transparent.png', alt: 'Logo Club', class: 'logo_navbar') %>
   </div>
-  <div class="login" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Evénements", events_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+
+  <div class="list">
+
+    <%= link_to root_path, class:"nav-button" do %>
+      <div
+        class= "onglet">
+        <p class= "text-onglet"
+            id = "<%= 'active' if request.path == '/' %>">ACCEUIL</p>
+      </div>
+    <% end %>
+
+    <%= link_to club_path, class:"nav-button" do %>
+      <div
+        class="onglet"">
+        <P class= "text-onglet"
+              id= "<%= 'active' if request.path == '/club' %>">CLUB</P>
+      </div>
+    <% end %>
+
+    <%= link_to vie_sportive_path, class:"nav-button" do %>
+      <div
+          class="onglet">
+          <p class= "text-onglet"
+          id= "<%= 'active' if request.path == '/vie_sportive' %>">VIE SPORTIVE</p>
+      </div>
+    <% end %>
+
+    <%= link_to saison_path, class:"nav-button" do %>
+      <div
+        class="onglet">
+        <p class= "text-onglet"
+        id= "<%= 'active' if request.path == '/saison' %>">DEBUT DE SAISON</p>
+      </div>
+    <% end %>
+
+    <%= link_to articles_path, class:"nav-button" do %>
+      <div
+        class="onglet">
+        <p class= "text-onglet"
+        id= "<%= 'active' if request.path == '/articles' %>">BOUTIQUE</p>
+      </div>
+    <% end %>
+
+    <%= link_to contact_path, class:"nav-button" do %>
+      <div
+        class="onglet", id="last">
+        <p class= "text-onglet"
+        id= "<%= 'active' if request.path == '/contact' %>">CONTACT</p>
+      </div>
+    <% end %>
+
+
+  </div>
+  <%# <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </div> %>
+
+
+
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+     <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+      <%= link_to root_path do %>
+        <li class="dropdown-item">Acceuil</li>
       <% end %>
+      <%= link_to club_path do %>
+        <li class="dropdown-item">Le Club</li>
+      <% end %>
+      <%= link_to vie_sportive_path do %>
+        <li class="dropdown-item">Vie Sportive</li>
+      <% end %>
+      <%= link_to saison_path do %>
+        <li class="dropdown-item">Début De Saison</li>
+      <% end %>
+      <%= link_to articles_path do %>
+        <li class="dropdown-item">Boutique</li>
+      <% end %>
+      <%= link_to contact_path do %>
+        <li class="dropdown-item">Contact</li>
+      <% end %>
+
     </ul>
   </div>
 </div>

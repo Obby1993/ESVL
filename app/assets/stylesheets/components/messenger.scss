@@ -1,0 +1,19 @@
+
+
+
+@media screen and (min-width: 917px) {
+  .messenger_icon {
+    color: black;
+    position: fixed;
+    bottom: 64px;
+    right: 37px;
+    font-size: 61px;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 917px) {
+  .messenger_icon {
+    display: none;
+  }
+}

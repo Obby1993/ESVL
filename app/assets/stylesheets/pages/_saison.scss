@@ -1,0 +1,147 @@
+.documents {
+  justify-content: space-between;
+  width: 80%;
+  margin-bottom: 100px;
+  margin: 0px auto 100px auto ;
+}
+
+@media screen and (max-width: 850px)  {
+  .documents {
+    display: block;
+    width: 100%;
+  }
+  .doc_utiles {
+    width: 100%;
+  }
+  .aide-fi {margin: 80px auto;}
+  #bouton-aidefi {
+    width: 40%;
+    height: 63px;
+  }
+  #titre-planning {
+    width: 95%;
+  }
+}
+
+@media screen and (min-width: 851px) and (max-width: 1080) {
+
+}
+
+@media screen and (min-width: 1081px)  {
+  .documents {
+    display: flex;
+  }
+  .doc_utiles {
+    width: 700px;
+    border-radius: 8px;
+  }
+
+
+}
+
+
+.doc_utiles {
+  background: rgba(151, 143, 67, 0.1);
+
+  margin-bottom: 10px;
+  padding-bottom: 80px;
+
+}
+
+.link_dl_doc {
+  margin: 5px auto 5px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 450px;
+  background: rgb(255, 255, 255);
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.11);
+  border-radius: 4px;
+
+  >a {
+    margin: 10px 10px 10px 20px ;
+    font-family: 'Hanken Grotesk';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+      }
+      .voir {
+        padding: 0px 20px 0 20px;
+        border-left: solid 2px #a8a7a7;
+      }
+}
+
+.aide-fi {
+  background: #000000;
+  border-radius: 8px;
+  width:372px;
+  padding: 32px;
+  height: 261px;
+  > h3 {color: #EEEEEE;
+    margin-bottom: 11px;}
+  > p {color: #EEEEEE;}
+
+}
+.lien-aide-fi {
+  display: flex;
+  justify-content: space-between;
+}
+#planning {
+  font-family: 'Hanken Grotesk', sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+  background: #EEEEEE;
+  padding-bottom: 80px;
+}
+
+.legende{
+  width: 80%;
+  margin: auto;
+  background: #F9F9F9;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-around;
+
+}
+@media screen and (max-width: 700px)  {
+  .legende{
+    flex-direction: column;
+  }
+  .gym {
+    width: 70%;
+    margin: 20px auto 20px auto;
+  }
+}
+@media screen and (min-width: 700px)  {
+  .legende{
+    flex-direction: row;
+  }
+  .gym {
+    width: 22%;
+    margin: 20px 0px 20px 0px;
+  }
+}
+
+.gym{
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.color{
+  width: 30px;
+  margin-right: 10px;
+  // height: 60px;
+}
+
+.info-gym{
+  text-align: left;
+
+}
+
+#localisation {
+  background: #D3D3D3;
+  padding-bottom: 80px;
+}

@@ -40,6 +40,9 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :cloudinary
+  # config.cloudinary.cloud_name = ENV['CLOUDINARY_CLOUD_NAME']
+  # config.cloudinary.api_key = ENV['CLOUDINARY_API_KEY']
+  # config.cloudinary.api_secret = ENV['CLOUDINARY_API_SECRET']
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil

@@ -1,0 +1,39 @@
+<% if user_signed_in? %>
+  <div class="login">
+    <h3 id="titre_log">Menu User</h3>
+      <ul class="">
+          <li class="">
+            <%= link_to "Evénements", events_path, class: "" %>
+          </li>
+          <li>
+            <%= link_to "Ajouter un employe", new_employe_path, class: "" %>
+          </li>
+          <li>
+            <%= link_to "Créer un événement", new_event_path, class: "" %>
+          </li>
+          <li>
+            <%=link_to "Créer un article", new_article_path(), class:"" %>
+          </li>
+          <li>
+            <%=link_to "Ajouter un Partenaire", new_partenaire_path, class:"" %>
+          </li>
+          <li>
+            <%=link_to "Ajouter une équipe", new_esvl_team_path, class:"" %>
+          </li>
+          <li>
+            <%=link_to "Ajouter un document", new_document_path, class:"" %>
+          </li>
+          <li>
+            <%=link_to "Ajouter des matchs", new_next_game_path, class:"" %>
+          </li>
+
+          <li>
+            <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+          </li>
+      <%# <% else %>
+        <%# <li class="">
+          <%= link_to "Login", new_user_session_path, class: "" %>
+        <%# </li> %>
+    </ul>
+  </div>
+<% end %>

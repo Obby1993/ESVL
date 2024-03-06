@@ -1,0 +1,34 @@
+.equipe {margin: 60px;
+
+}
+
+.match {
+  display: flex;
+  width: 100%;
+  // border-bottom: 1px solid #dba13c8a ;
+  margin-top: 15px;
+
+}
+
+.date {
+  width: 30%;
+  color: #DBA23C;
+  border-right: 1px solid #dba13c8a ;
+  font-size: larger;
+
+
+  text-align: center;
+  padding: 5px 10px 0px 0px;
+}
+
+.info-match {
+  width: 70%;
+  color: #DBA23C;
+  text-align: center;
+  padding: 5px 10px 5px 10px;
+  .salle-heure{
+    color: black;
+    font-family: 'Hanken Grotesk', sans-serif;
+  }
+  span {color: black;}
+}

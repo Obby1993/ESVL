@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_191045) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_25_090935) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_191045) do
     t.string "stripe_price_id"
     t.string "currency", default: "eur"
     t.integer "price"
+    t.boolean "display", default: false
     t.index ["event_id"], name: "index_articles_on_event_id"
   end
 
@@ -74,6 +75,36 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_191045) do
     t.index ["user_id"], name: "index_commandes_on_user_id"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.string "titre"
+    t.integer "année"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "public_id"
+  end
+
+  create_table "employes", force: :cascade do |t|
+    t.string "poste"
+    t.string "nom"
+    t.string "prenom"
+    t.integer "année"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "niveau_employe"
+  end
+
+  create_table "entrainements", force: :cascade do |t|
+    t.bigint "esvl_team_id"
+    t.datetime "horaire_debut"
+    t.datetime "horaire_fin"
+    t.bigint "gymnase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "jour"
+    t.index ["esvl_team_id"], name: "index_entrainements_on_esvl_team_id"
+    t.index ["gymnase_id"], name: "index_entrainements_on_gymnase_id"
+  end
+
   create_table "esvl_teams", force: :cascade do |t|
     t.integer "année"
     t.string "division"
@@ -84,6 +115,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_191045) do
     t.string "autre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "categorie"
   end
 
   create_table "event_teams", force: :cascade do |t|
@@ -115,6 +147,38 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_191045) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "gymnases", force: :cascade do |t|
+    t.string "nom"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+  end
+
+  create_table "next_games", force: :cascade do |t|
+    t.time "heure"
+    t.string "lieu"
+    t.string "team_a"
+    t.string "team_b"
+    t.string "division"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "day"
+    t.bigint "esvl_team_id"
+    t.index ["esvl_team_id"], name: "index_next_games_on_esvl_team_id"
+  end
+
+  create_table "partenaires", force: :cascade do |t|
+    t.date "année"
+    t.string "entreprise"
+    t.string "contact"
+    t.integer "numero"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -134,6 +198,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_191045) do
   add_foreign_key "commandes", "articles"
   add_foreign_key "commandes", "event_teams"
   add_foreign_key "commandes", "users"
+  add_foreign_key "entrainements", "esvl_teams"
+  add_foreign_key "entrainements", "gymnases"
   add_foreign_key "event_teams", "events"
   add_foreign_key "events", "users"
+  add_foreign_key "next_games", "esvl_teams"
 end

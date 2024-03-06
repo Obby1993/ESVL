@@ -1,0 +1,7 @@
+  <span class="h"><%= entrainement.horaire_debut.hour%>h<%= entrainement.horaire_debut.min%> - <%=entrainement.horaire_fin.hour%>h<%= entrainement.horaire_fin.min%></span><br>
+  <%if entrainement.esvl_team.division.length <= 4%>
+    <%= entrainement.esvl_team.division%><br>
+  <% else %>
+    <%= entrainement.esvl_team.division.first%><%=entrainement.esvl_team.division.last %> <br>
+  <%end%>
+    <%= entrainement.esvl_team.genre.first %><br>

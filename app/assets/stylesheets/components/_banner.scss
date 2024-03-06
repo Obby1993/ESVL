@@ -1,0 +1,41 @@
+.partie_banner {
+  display: flex;
+  align-items: center;
+  height: 90vh;
+}
+@media screen and (max-width: 1023px) {
+  .partie_banner {
+    height: 50vh;
+}
+}
+@media screen and (min-width: 1023px)  {
+  .partie_banner {
+    height: 75vh;
+}
+}
+#banner {background-image: linear-gradient(rgba(0,0,0,0),80%, rgb(253, 253, 253)), url("loup_esvl.png");
+  background-size: cover;
+  background-position: top;
+  height: 100%;
+  width: 50%;
+}
+
+.partie_h4 {
+  margin: auto;
+  width: 50%;
+  // height: 100vh;
+  // height: 543px;
+  // background: linear-gradient(rgba(0,0,0,0),80%, rgb(253, 253, 253));
+  background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #FFFFFF 0%);
+}
+// .deco {width: 50px;}
+
+@media screen and (max-width: 1023px) {
+
+  .partie_h4 {
+    display: none;}
+    #banner {
+      width: 100%;
+    }
+
+}

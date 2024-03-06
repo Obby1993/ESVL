@@ -1,0 +1,23 @@
+
+<div class="container py-5" style="margin-top: 40px">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Ajouter une équipe ESVL</h3>
+        <div class="questions">
+          <%= simple_form_for ([@esvl])  do |e| %>
+            <%= e.input :année, label: "Année de la saison", placeholder: "2023" %>
+            <%= e.input :division, label: "Niveau de compétition:" %>
+            <%= e.input :genre, label:"Genre de l'équipe:", collection: ["Homme", "Femme", "Mixte"] %>
+            <%= e.input :categorie, label:"Sénior Ou Jeune:", collection: ["Senior", "Jeune" ] %>
+            <%= e.input :coach, label:"Nom et prénom du coach:"%>
+            <%= e.input :résultat %>
+            <%= e.input :autre, label:"Autres informations (Nom/prénom des équipiers):" %>
+            <%= e.input :photo, as: :file %>
+            <%= e.submit class: 'btn btn-flat' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

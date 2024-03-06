@@ -1,0 +1,41 @@
+<div class="conteneur">
+  <div class="footer">
+    <div class="logo_follow">
+      <%=image_tag("logo_esvl_transparent.png", width: 134, height:134)%>
+      <div class="part1">
+        <div class="partenaire">
+          <p>Suivez-nous</p>
+          <ul class = "logo_inline">
+            <li class="inline" id="first_inline"><a class="social_icon" href="https://arthur-littm.github.io/startup-landing/#"target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+            <li class="inline"><a class="social_icon" href="https://arthur-littm.github.io/startup-landing/#"target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+            <li class="inline"><a class="social_icon" href="https://arthur-littm.github.io/startup-landing/#" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="part2">
+      <div class="list">
+
+          <%= link_to "Acceuil", root_path, class: "onglet-footer" %>
+          <%= link_to "Le club", club_path, class: "onglet-footer" %>
+          <%= link_to "Vie Sportive", vie_sportive_path,  class: "onglet-footer" %>
+          <%= link_to "Boutique", articles_path, class: "onglet-footer" %>
+          <%= link_to "Début de saison", saison_path, class: "onglet-footer" %>
+          <%= link_to "Contact", contact_path, class: "onglet-footer" %>
+
+      </div>
+    </div>
+
+    <div class="part3">
+      <% if user_signed_in? %>
+          <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "log" %>
+        <% else %>
+          <%= link_to "Espace membre", new_user_session_path, class: "log" %>
+        <%end%>
+    </div>
+  </div>
+  <div class="end">
+    <%= link_to "CGU", articles_path, class: "onglet li_end", id: "li_end" %>
+    <%= link_to "Mention Légal", articles_path, class: "onglet", id:"li_end" %>
+  </div>
+</div>

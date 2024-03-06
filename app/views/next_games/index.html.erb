@@ -1,0 +1,36 @@
+<div class="container py-5" style="margin-top: 40px">
+  <div class="next_matchs">
+    <h1 class="titre_partie">LES PROCHAINS MATCHS</h1>
+    <% if user_signed_in? %>
+      <%= form_with(url: import_csv_path, multipart: true) do |form| %>
+        <div class="field">
+          <%= form.label :csv_file %>
+          <%= form.file_field :csv_file %>
+        </div>
+
+         <div class="field">
+          <%= form.label :esvl_team_id, "ESVL Team" %>
+          <%= form.collection_select :esvl_team_id, @esvl_teams, :id, :division, prompt: "Select an ESVL Team" %>
+        </div>
+
+  <div class="actions">
+    <%= form.submit "Import" %>
+  </div>
+<% end %>
+<%end%>
+
+
+    <div class="next-game">
+      <% @next_games.each do |ng| %>
+        <%= ng.day%>
+        <%= ng.heure%>
+        <%= ng.team_a %>
+        <%= ng.team_b %>
+        <%= ng.lieu %>
+        <%= ng.esvl_team_id %>
+        <%= ng.esvl_team %>
+        <br>
+      <% end %>
+    </div>
+  </div>
+</div>

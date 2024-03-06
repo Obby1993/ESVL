@@ -1,0 +1,23 @@
+<div class="container py-5" style="margin-top: 40px">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h1>Ajoute les prochains matchs</h1>
+          <%= form_with(url: import_csv_path, multipart: true) do |form| %>
+            <div class="field">
+              <%= form.label :csv_file %>
+              <%= form.file_field :csv_file %>
+            </div>
+
+            <div class="field">
+              <%= form.label :esvl_team_id, "ESVL Team" %>
+              <%= form.collection_select :esvl_team_id, @esvl_teams, :id, :division, prompt: "Choisissez une équipe de l'ESVL" %>
+            </div>
+            <div class="actions">
+              <%= form.submit "Import" %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

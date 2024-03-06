@@ -1,0 +1,60 @@
+
+   <% total = 0 %>
+
+
+<div class="panier affiche-panier"data-displaypanier-target="panier">
+      <h3 id="h3_panier">MON PANIER</h3>
+
+  <div class="articles_panier">
+
+    <% @panier.each do |article_panier| %>
+
+      <div class="article_panier">
+
+        <div class="photo_article_panier">
+          <%# <% if article_panier.photos == [] %>
+            <%# <%= cl_image_tag article_panier.photo.key, :crop=>"fill" %>
+          <%# <% else %>
+            <%# <%= cl_image_tag article_panier.photos.first.key, :crop=>"fill" %>
+          <%# <% end %>
+        </div>
+
+
+        <div class="info_article_panier">
+          <div class="info_select">
+            <p class="important"><%=article_panier["article"]["titre"]%></p>
+            <p class="important"> <%=article_panier["size"]%><p>
+            <p class="price">Quantité : <%= article_panier["quantity"].to_i %></p>
+
+          </div>
+          <div class="prix_delete">
+            <p class="price"><%= humanized_money_with_symbol(article_panier["article"]["price"]*article_panier["quantity"].to_i)%></p>
+            <%= button_to "Supprimer", remove_from_panier_path(article_panier["article"]["id"]), methode: :delete, class:"delete" %>
+          </div>
+        </div>
+
+        <%# <div class="price_article_panier"> %>
+        <%# </div> %>
+      </div>
+      <% total += article_panier["article"]["price"]*article_panier["quantity"].to_i %>
+    <%end%>
+  </div>
+  <div class="info_panier" id="article_ajoute">
+      <p class="important"> Articles ajoutés:</p>
+      <%nb_item = 0%>
+      <%@panier.each { |item| nb_item += item["quantity"]}%>
+      <p class="price"> <%= nb_item%></p>
+  </div>
+
+    <div class="info_panier">
+      <p class="important">Total TTC :</p>
+      <p class="price"><%=humanized_money_with_symbol(total)%></p>
+    </div>
+    <%if @panier.present?%>
+        <p id="info_livraison">Livraison non incluse</p>
+        <%=button_to "Acheter", commandes_path, remote: true, data: { turbo:false }, class:"button", id:"acheter" %>
+        <%# data: { disable_with: "validating..."} %>
+        <%# <%@panier.collect { |item| item.to_json }%>
+      <%end%>
+    </div>
+</div>

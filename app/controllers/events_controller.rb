@@ -1,10 +1,23 @@
 class EventsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @events = Event.all
+    @events = Event.all.sort do |event1, event2|
+      event1.date_event <=> event2.date_event
+    end
   end
 
   def show
     @event = Event.find(params[:id])
+      # events
+      @ordres = Event.all
+      # selectionnne seulement les events pas encore passé
+      @ordres.select { |e| (e.date_event - DateTime.now).positive? }
+      # ordonne les events du plus récent
+      @ordres = @ordres.sort do |event1, event2|
+        event1.date_event <=> event2.date_event
+      end
+      # selectionne les 4 premeiers
+      @ordres = @ordres.select { @ordres[0..3] }
   end
 
   def new

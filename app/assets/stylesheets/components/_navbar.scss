@@ -1,28 +1,141 @@
-.navbar {
-  width: 100%;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
+
+.logo-navbar{
+  margin-left: 37px;
+  margin-right: 50px;
 }
 
-.menu {
-  width: 65%;
+
+@media screen and (max-width: 1023px) {
+  .navbar {
+    width: 100%;
+    // overflow: hidden;
+    padding: 0;
+    height: 54px;
+    background-color: #ffffff;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    // border-bottom: solid;
+    // border-width:  1px;
+    // visibility: hidden;
+  }
+  .dropdown {
+    visibility: visible;
+    margin-right: 37px;
+  }
+  .dropdown-menu {
+    margin-right: 50px;
+  }
+  .list {display: none;
+  }
 }
-.list {
-  display: flex;
-  justify-content: flex-end;
-  list-style-type: none;
+
+.dropdown-menu[data-bs-popper] {
+  left: -175%;
 }
+#dropdownMenuButton1 {
+  background-color: #ffffff;
+  color: gray;
+  border: none;
+}
+@media screen and (min-width: 1023px) {
+  .navbar {
+    width: 100%;
+    padding: 0;
+    height: 54px;
+    background-color: #FBE506;
+    color: #000;
+    border-bottom: solid;
+    border-width:  1px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+  .list {
+    width: 86%;
+    padding: 0;
+    display: flex;
+    align-content: center;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+  }
+  #last {width: auto;
+  }
+  .nav-button {
+    width: 15%;
+  }
+
+.dropdown {
+  display: none;
+}
+
+}
+
+.text-onglet {
+    text-decoration: none;
+  color: #000;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 0px;
+    text-align: center;
+}
+
+
+
+// .menu {
+//   width: 65%;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+// .list {
+//   // width: 100%;
+//   // padding: 0;
+//   display: flex;
+//   align-content: center;
+//   list-style-type: none;
+//   // margin-bottom: 0;
+//   margin-left: auto;
+//   margin-right: auto;
+//   height: 100%;
+
+// }
 .onglet {
-  margin-left: 15px;
   text-decoration: none;
+  height: 100%;
   border-right: solid;
     border-width: 1px;
-    padding-right: 15px;
+  // width: 191px;
+  display: grid;
+  place-items: center;
+
+  // a{
+  //   display: block;
+  //   text-align: center;
+
+  // }
+}
+
+#active {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  font-weight: 700;
+  font-family: "Hanken Grotesk", sans-serif;
+  a {color: #000;}
+
 }
 #last {
   border: none;
 }
-.login {
-display: inline;
+
+// #first {
+//   border: none;
+// }
+
+.logo_navbar {
+  height: 46px;
+  margin-top: 3px;
 }

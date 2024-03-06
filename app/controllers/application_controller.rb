@@ -14,4 +14,11 @@ class ApplicationController < ActionController::Base
   def load_panier
     @panier = Article.where(id: session[:panier])
   end
+
+  # def total_panier(panier)
+  #   total = 0
+  #   panier.each do |article_panier|
+  #     total += article_panier
+  #   end
+  # end
 end

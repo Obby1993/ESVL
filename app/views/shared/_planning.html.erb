@@ -1,0 +1,63 @@
+<% heure = (8..23).to_a %>
+<h3 id="ecran-planning">Pour afficher le planning veuillez passer en paysage.</h3>
+<table>
+  <caption>Planning d'entraînement type, susceptible de changer sur demande. Cliquez sur un créneau pour avoir des informations sur l'équipe.</caption>
+  <thead>
+    <tr id="header-table">
+      <th scope="col" class="heure-color"></th>
+      <% @semaine.each do |j| %>
+        <th scope="col"><%= j.upcase %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% heure.each do |h| %>
+      <tr>
+        <th scope="row" class="heure-color"><%= h %> </th>
+        <% @semaine.each do |j| %>
+          <% entrainements = @entrainements.select { |e| e.jour == j && e.horaire_debut.hour == h } %>
+          <% if entrainements.length > 1 %>
+            <td class="multiple-cell">
+              <% entrainements.each do |entrainement| %>
+                <%= link_to esvl_team_path(entrainement) do %>
+                  <%if entrainement.gymnase.nom == "Beach Volley"%>
+                    <div class="sub-cell beach">
+                      <%=render "shared/multiple_cell_planning", entrainement: entrainement%>
+                    </div>
+                  <% elsif entrainement.gymnase.nom == "Romée" %>
+                    <div class="sub-cell romee">
+                      <%=render "shared/multiple_cell_planning", entrainement: entrainement%>
+                    </div>
+                  <% else %>
+                    <div class="sub-cell granelle">
+                      <%=render "shared/multiple_cell_planning", entrainement: entrainement%>
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </td>
+          <% elsif entrainements.any? %>
+            <% entrainements.each do |entrainement| %>
+                <%if entrainement.gymnase.nom == "Beach Volley"%>
+                  <td class="beach">
+                      <%=render "shared/cell_planning", entrainement: entrainement%>
+                  </td>
+                <% elsif entrainement.gymnase.nom == "Romée" %>
+                  <td class="romee">
+                        <%=render "shared/cell_planning", entrainement: entrainement%>
+                    </td>
+                <% else %>
+                  <td class="granelle">
+                      <%=render "shared/cell_planning", entrainement: entrainement%>
+                  </td>
+                <% end %>
+            <% end %>
+
+          <% else %>
+            <td></td> <!-- Cellule vide pour les heures sans entraînement -->
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

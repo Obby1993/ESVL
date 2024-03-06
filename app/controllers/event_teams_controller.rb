@@ -11,10 +11,13 @@ class EventTeamsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @team = EventTeam.new(event_team_params)
-    # @team.article =
     @team.event = @event
+    @article = Article.find_by(event_id: @event.id)
+    session[:panier] << @article.id
+
     if @team.save!
-      redirect_to event_event_team_path(@event, @team)
+      redirect_to articles_path()
+
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +39,7 @@ class EventTeamsController < ApplicationController
   end
 
   def event_team_params
-    params.require(:event_team).permit(:nom_equipe, :niveau, :nom_capitaine, :email_capitaine, :numero_capitaine, :nb_joueur)
+    params.require(:event_team).permit(:nom_equipe, :niveau, :nom_capitaine, :email_capitaine, :numero_capitaine, :nb_joueur, :joueurs)
   end
 
 end

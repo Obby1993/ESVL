@@ -1,0 +1,8 @@
+<%= link_to esvl_team_path(entrainement.esvl_team.id) do %>
+  <span class="h"><%= entrainement.horaire_debut.hour%>h<%= entrainement.horaire_debut.min%> - <%=entrainement.horaire_fin.hour%>h<%= entrainement.horaire_fin.min%></span><br>
+  <%= entrainement.esvl_team.division %> <br>
+  <%= entrainement.esvl_team.genre.first %><br>
+  <div class="coach-planning">
+    <span class="coach_plan">Coach:</span> <%=entrainement.esvl_team.coach%>
+  </div>
+<% end %>

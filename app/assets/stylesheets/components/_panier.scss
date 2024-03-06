@@ -1,0 +1,147 @@
+.panier {
+  border: solid;
+  border-color: #979797;
+  border: 1px;
+  background-color: rgba(151, 143, 67, 0.2);
+  //background: linear-gradient( rgba(0,0,0,0),90%, rgb(251, 231, 6));
+  // border-color: #000;
+  box-shadow: 0px 2px 5px rgba(86, 83, 83, 0.5);
+  // background-color: #FBE506;
+  padding-bottom: 30px;
+  height: auto;
+  border-radius: 4px;
+  position: sticky;
+  top: 0;
+  // right: 100px;
+
+}
+@media screen and (max-width: 916px)  {
+  .panier {
+    width: 80%;
+    margin-bottom: 60px;
+    // justify-content: space-around;
+  }
+  .affiche-panier {
+    display: none;
+  }
+  .button-affiche-panier {
+    position: sticky;
+    top: 0px;
+    left: 35%;
+    z-index: 1;
+    background-color: #FBE506;
+  }
+}
+@media screen and (min-width: 917px) {
+  .panier {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .button-affiche-panier {
+    display: none;
+  }
+}
+
+.price_total_and_acheter {
+  display: flex;
+  justify-content: space-between;
+  width: 51%;
+  align-items: center;
+  #acheter {
+    width: 100%;
+  }
+}
+
+.article_panier {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 130px;
+  padding: 15px;
+  margin: 16px 20px 16px 20px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+
+}
+#h3_panier {
+  text-align: center;
+    padding: 25px 0px 25px 0px;
+    font-size: 28px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+.prix_delete {
+  text-align: center;
+    padding-right: 13px;
+}
+
+.photo_article_panier {
+  background-color: gray;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  // background-size:cover;
+  z-index: 2;
+  img{max-width: 130%;
+  max-height: 130%;}
+  margin-right: 16px ;
+
+}
+.info_article_panier {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  .name { width: 70%;
+  margin: 0;}
+}
+.price_article_panier{
+  width: 15%;
+}
+
+.info_panier {
+  display: flex;
+  margin: 50px 35px 20px 35px;
+  justify-content: space-between;
+
+}
+#article_ajoute {
+  border-bottom: solid black 1px;
+}
+.price {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  }
+  .important {
+    width: 166px;
+  height: 18px;
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 0;
+  }
+
+  #info_livraison{
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #7D7676;
+  margin-left: 35px;
+  }
+
+  .delete {
+    border: none;
+    background: none;
+    text-decoration: underline;
+    color: gray;
+  }

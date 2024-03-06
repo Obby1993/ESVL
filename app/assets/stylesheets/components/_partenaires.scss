@@ -1,0 +1,62 @@
+.partenaires {
+  margin: auto;
+  // width: 60%;
+  padding-bottom: 50px;
+  h3 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+// .logos_partenaires {
+//   display: flex;
+//   justify-content: space-around;
+//   width: 40%;
+//   height: 150px;
+//   overflow: hidden;
+//   margin: auto;
+//   align-items: center;
+//   font-size: 60PX;
+//   color: #5F5F5F;
+// }
+
+.carousel-inner {
+  width: 100%;
+  margin: auto;
+}
+
+.slide {
+  margin-left: 22%;
+  width: 56%;
+}
+.prev,
+.next  {
+  filter: invert(100%);
+  height: 60px;
+  font-weight: bolder;
+}
+
+
+
+@media screen and (max-width: 1023px) {
+  .slide {
+    height: 150px;
+    overflow: hidden;
+    margin-left: 24%
+  }
+
+
+  .active {
+    height: 150px;
+    overflow: hidden;
+  }
+}
+
+
+@media screen and (max-width: 1023px) and (min-width: 800px) {
+  .slide {
+    height: 150px;
+    overflow: hidden;
+    margin-left: 28%
+
+  }
+}

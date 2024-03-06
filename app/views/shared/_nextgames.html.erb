@@ -1,0 +1,16 @@
+  <h1 class="titre_partie">LES MATCHS DE LA SEMAINE</h1>
+<div class="les_prochains_matchs">
+  <%esvl_teams.each do |team|%>
+        <%tab = team.next_games.select{ |game| (game.day <= DateTime.now + 7 && game.day >= DateTime.now - 7 ) }%>
+      <div class="equipe">
+        <h2 id="division"><%=team.division%> <%=team.genre%></h2>
+        <%if tab == [] %>
+          <p> Il n'y a pas de match ce weekend.</p>
+        <% else %>
+        <%tab.each do |game| %>
+          <%=render "shared/match", next_game: game %>
+        <% end %>
+      <% end %>
+      </div>
+  <% end %>
+</div>

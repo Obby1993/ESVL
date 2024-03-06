@@ -1,0 +1,225 @@
+// Specific CSS for your home-page
+.contenaire {
+  margin: auto;
+  p{font-family: "Roboto";}
+  // a:visited {color: black;}
+  a {
+    text-decoration: none;
+    // color: #000;
+  }
+}
+.partie {
+  height: 800px;
+}
+
+
+// PARTIE BANNIERE
+
+
+
+// PARTIE EVENEMENTS
+
+
+
+// PARTIE HISTOIRE DU CLUB
+
+
+
+
+.articles {
+  // display: flex ;
+  // justify-content: space-between;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 45px;
+}
+//Article 1 et 3
+.article_histoire {
+ text-align: justify;
+//  padding-bottom: 50px ;
+ .texte_article {
+  max-height: 700px;
+ }
+ h2 {
+  text-align: left;
+ }
+ .image_article {
+  height: 200px;
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0)), url("loup_esvl.png");
+ }
+}
+//2ème article
+.second_image {
+  // width: 100%;
+  display: block;
+  height: 200px;
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0)), url("loup_esvl.png");
+  margin-bottom: 70px;
+
+ }
+@media screen and (min-width: 1023px) {
+  .articles {
+    display: flex ;
+    justify-content: space-between;
+}
+.image_article {
+  width: 100%;
+ }
+
+ .article_histoire {
+  width: 29%;
+ }
+ #histoire {
+  padding-bottom: 60px;
+}
+}
+
+
+@media screen and (min-width: 651px) and (max-width: 1023px) {
+  .second_image {position: relative;
+    top: 200px;
+    margin: 0px auto 100px auto;
+    width: 80%;
+  }
+  .article_histoire {
+    margin-bottom: 80px;
+  }
+  #second_article {
+    padding-bottom: 0px;
+    margin-bottom: 50px;
+  }
+  #second_text_article {
+    position: relative;
+    bottom: 270px;
+  }
+  .image_article {
+    width: 80%;
+    margin: auto;
+  }
+
+  #histoire {
+    padding-bottom: 0px;
+  }
+
+}
+
+
+
+
+
+@media screen and  (max-width: 650px) {
+  .article_histoire {
+    margin-bottom: 80px;
+  }
+  #second_article {
+    padding-bottom: 0px;
+    margin-bottom: 50px;
+  }
+  #second_text_article {
+    position: relative;
+    bottom: 270px;
+  }
+  .image_article {
+    width: 80%;
+    margin: auto;
+  }
+  .second_image {position: relative;
+    top: 240px;
+    margin: 0px auto 100px auto;
+    width: 80%;
+  }
+  #histoire {
+    padding-bottom: 0px;
+  }
+  //   display: block;
+  // top: 5px;}
+
+
+  .trombinoscope {
+    display: block;
+    width: 100%;
+  }
+  .personne {
+    margin-left: 10%;}
+
+}
+
+
+
+
+
+
+ //PARTIE ORGANIGRAMME
+ @media screen and (min-width: 651px) and (max-width: 910px)  {
+
+  .trombinoscope {
+    display: flex;
+    width: 90%;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .personne {
+    width: 270px;
+    margin: 10px auto 45px auto;}
+ }
+ @media screen and (min-width: 911px)  {
+  .trombinoscope {
+    display: flex;
+    width: 90%;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .personne {
+    margin: 10px auto 45px auto;
+    width: 33%;
+  }
+ }
+
+#partie-employe {
+
+  width: 100%;
+  // width: 80%;
+}
+.employé {
+  width: 90%;
+  margin: auto;
+}
+h2{
+  margin-bottom: 30px;
+}
+ .trombinoscope {
+  // display: flex ;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
+  // width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 70px;
+  .personne {
+    // flex: 1 1 30%;
+    // width: 30%;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 45px;
+    .avatar {
+      width: 88px;
+      height: 88px;
+      img {
+        border-radius: 100%;
+        width: 88px;
+        height: 88px;
+      }
+    }
+    .info_personne {
+      padding-left: 10px;
+      width: 270px;
+      overflow: hidden;
+
+    }
+  }
+}

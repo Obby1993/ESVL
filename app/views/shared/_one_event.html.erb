@@ -1,0 +1,15 @@
+
+<div class="one-event">
+  <div class="image_next1"
+    style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key, crop: :fill %>')">
+    <p class="date_event"><%=event.date_event.strftime("%d.%m.%Y")%></p>
+  </div>
+  <div class="info_next1">
+    <h3><%=event.nom%></h3>
+    <p class="short_description"><%=event.autre%></p>
+    <div class="link_date">
+      <%=link_to "Voir événement", event_path(event), id:"link_next1"%>
+      <p class="date_event_low_screen date_event"><%=event.date_event.strftime("%d.%m.%Y")%></p>
+    </div>
+  </div>
+</div>

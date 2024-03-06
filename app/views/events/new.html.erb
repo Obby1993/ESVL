@@ -9,7 +9,7 @@
           <%= e.input :nb_equipes, placeholder: "Nombre d'équipe" %>
           <%= e.input :date_event, placeholder: "Jour de l'événement" %>
           <%= e.input :deadline_register, placeholder: 'Cloture des inscriptions' %>
-          <%= e.input :genre, placeholder: 'Genre' %>
+          <%= e.input :genre, placeholder: 'Genre', collection: ["Homme", "Femme", "Mixte"] %>
           <%= e.input :autre, placeholder: 'Informations complémentaires' %>
           <%= e.input :nb_joueur_equipe, placeholder: 'Nombre de joueur par équipe' %>
           <%= e.input :price_cents, placeholder: "Prix de l'inscription" %>

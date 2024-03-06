@@ -1,0 +1,47 @@
+
+#les_equipes_esvl {
+
+background: rgba(151, 143, 67, 0.1);
+// padding-bottom: 60px;
+}
+.esvl_teams {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 68PX;
+  flex-wrap: wrap;
+}
+
+.recherche {
+  background-color: #FFFF;
+  border-radius: 4px;
+  width: 80%;
+
+}
+
+@media screen and (max-width: 980px)  {
+
+  .les_prochains_matchs {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 980px)  {
+  .les_prochains_matchs {
+    width: 60%;
+  }
+}
+.div_recherche {
+  margin: 0 auto 40px auto;
+  width: 70%;
+}
+
+#next_games {
+  background-color: #FFFF;
+  padding-bottom: 68PX;
+
+}
+.les_prochains_matchs {
+  margin: auto;
+  font-family: 'Hanken Grotesk', sans-serif;
+}

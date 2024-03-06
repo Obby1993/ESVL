@@ -1,6 +1,8 @@
+<div class="contenaire">
+<div class="inscription">
 <div class="text-banner fermeture">
-  <h1><%=@event.nom%> </h1>
-  <p> <%=@event.nb_joueur_equipe%>c<%=@event.nb_joueur_equipe%> (<%= @event.genre%>) </p>
+  <h1 class="titre_partie"><%=@event.nom%> </h1>
+  <h2> <%=@event.nb_joueur_equipe%>c<%=@event.nb_joueur_equipe%> (<%= @event.genre%>) </h2>
 </div>
 
 <h3>Créer son équipe</h3>
@@ -13,6 +15,8 @@
       <%= f.input :email_capitaine, label:"Email:", placeholder: "jmpotier@gmail.com" %>
       <%= f.input :numero_capitaine, label:"Numéro de téléphone:", placeholder: "0612234323" %>
       <%= f.input :joueurs, label:"Nom/prénom des coéquipiers:", placeholder: "Jacques Daniels, José Pet" %>
-      <%= f.submit label:"Inscrire et payer", class: 'btn btn-flat' %>
+      <%= f.submit "S'inscrire et payer", class: 'button' %>
     <% end %>
   </div>
+  </div>
+</div>

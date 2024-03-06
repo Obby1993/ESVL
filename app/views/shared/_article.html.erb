@@ -1,0 +1,75 @@
+<div class="article">
+  <div class="article_image">
+
+
+    <div id="carouselExampleControls" class="carousel img_article" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active ">
+          <%=cl_image_tag article.photos[0].key, crop: :fill, class:"image_article_carrousel"%>
+        </div>
+
+        <%article.photos[1...].each do |photo| %>
+          <div class="carousel-item ">
+            <%= cl_image_tag photo.key, crop: :fill %>
+          </div>
+        <%end%>
+
+      </div>
+      <button class="carousel-control-prev prev-photo-article" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon prev-icon " aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next next-photo-article" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <%# <div class="test"> %>
+    <div class="article_info">
+      <div class="article_name">
+        <h3><%=article.titre%></h3>
+        <p>FEMME<%=article.genre%></p>
+        <p class="complement"><%=article.remarque%></p>
+      </div>
+
+      <h3 class="article_price"><%=humanized_money_with_symbol(article .price)%></h3>
+
+    </div>
+
+  <%# </div> %>
+
+
+  <div class="size-panier" >
+
+
+    <div class="form-group" data-controller="addtopanier">
+      <%= form_with(url: add_to_panier_path(id: article.id), method: :post, id: "add-to-cart-form") do |form| %>
+        <%= form.label :size, "Taille" %>
+        <%= form.select :size, ["S", "M", "L", "XL"], selected: "M", class: "", id: "size-select" %>
+        <%= form.label :quantity, "Quantité", class: "quantite" %>
+         <%= form.number_field :quantity, value: 1, min: 1, class: "form-control", data: { target: "addtopanier.quantityInput" } %>
+        <%= button_to "Ajouter au panier", add_to_panier_path(id: article.id), data: { action: "click->addtopanier#addToPanier" }, class: "button", id:"add_panier", method: :post %>
+        <%# <%= form.submit "Ajouter au panier", class: "button", id: "add_panier" %>
+      <% end%>
+    </div>
+  </div>
+
+
+
+
+  <div class="affiche" data-controller="affiche">
+    <% if user_signed_in?%>
+      <%=link_to "Afficher l'article sur la home: ", article_display_path(article), data: { turbo_method: :patch, turbo_confirm: "Vous ne pouvez afficher que 3 articles, êtes vous sûr de vouloir afficher/désafficher cet article?"}  %>
+      <%if article.display?%>
+        <i class="fa-solid fa-check"></i>
+      <%else%>
+        <i class="fa-solid fa-xmark"></i>
+      <%end%>
+    <%end%>
+  </div>
+
+  <%if user_signed_in?%>
+    <%=link_to "Supprimer l'article", article_path(article), data: { turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cet article?"}  %>
+  <%end%>
+</div>

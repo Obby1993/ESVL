@@ -1,59 +1,40 @@
   <script src="https://js.stripe.com/v3/"></script>
-
-
 <div class="contenaire">
-  <h1>Boutique du club</h1>
-  <div class="index-article">
-    <ul>
-      <% @articles.each do |article|%>
-        <%= link_to article_path(article) do%>
-        <div class="card-trip">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-          <div class="card-trip-infos">
-            <div>
-              <h2><%=article.titre%></h2>
-              <p><%article.genre%></p>
-              <p><%article.taille_disponible%></p>
-            </div>
-            <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(article .price) %></h2>
-          </div>
-        </div>
-        <%end%>
-          <%= button_to "Ajouter au panier", add_to_panier_path(article) %>
-      <%end%>
-      <%=link_to "Créer un ARTICLE", new_article_path(), class:"btn, btn-primary"%>
-    </ul>
+
+ <div class="partie_banner">
+  <div class="partie", id="banner"></div>
+  <div class="partie_h4">
+    <h4>LA BOUTIQUE DE<BR>L'ESVL,<BR>C'EST PAR ICI...</h4>
   </div>
-  <h2>Mon panier</h2>
-  <div class="index-article">
-    <% @panier.each do |article| %>
-      <p><%=article.titre%> <%= article.genre%> <%= article.price%> /// <%=article.stripe_product_id%>     ///   <%= article.stripe_price_id %></p>
-      <%if @panier.include?(article) %>
-        <%= button_to "Supprimer", remove_from_panier_path(article), methode: :delete %>
+ </div>
+  <h1 class="titre_partie", id="boutique-titre">Boutique du club</h1>
+  <div class="index-boutique" data-controller="displaypanier"  >
+    <button class="button-affiche-panier"  data-action="click->displaypanier#voirpanier">Voir mon panier<i class="fa-solid fa-cart-shopping"></i></button>
+    <div class="articles_boutique">
+      <% @articles.select { |a| a.event_id == nil}.each do |article|%>
+      <%# <% @articles.each do |article|%>
+        <%= render "shared/article", article: article%>
       <%end%>
-    <%end%>
-    <%if @panier.present?%>
-      <%=button_to "Acheter", commandes_path, remote: true, data: { turbo:false } %>
-      <%# data: { disable_with: "validating..."} %>
-      <%=@panier.collect { |item| item.to_builder.attributes! }%>
-    <%end%>
+
+    </div>
+
+    <div class="index_panier">
+      <%= render "shared/panier", panier: @panier %>
+    </div>
   </div>
-  <h1>Evénements</h1>
-  <div class="index_event">
-    <ul>
-      <%@events.each do |event|%>
-        <%= link_to event_path(event) do%>
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            <h2><%=event.nom%></h2>
-            <p>Date : <%=event.date_event%></p>
-            <p>Nombre d'équipe : <%=event.nb_equipes%></p>
-            <p>Fermeture des inscriptions: <%=event.deadline_register%></p>
-          </div>
-        </div>
-        <%end%>
-      <%end%>
-    <ul>
-  </div>
+
 </div>
+
+<%# <h2>Mon panier</h2> %>
+      <%# <% @panier.each do |article| %>
+        <%# <p><%=article.titre <%= article.genre <%= article.price /// <%=article.stripe_product_id%>
+           <%# ///   <%= article.stripe_price_id</p> %>
+        <%# <%if @panier.include?(article) %>
+          <%# <%= button_to "Supprimer", remove_from_panier_path(article), methode: :delete %>
+        <%# <%end%>
+      <%# <%end%>
+      <%# <%if @panier.present?%>
+        <%# <%=button_to "Acheter", commandes_path, remote: true, data: { turbo:false } %>
+        <%# data: { disable_with: "validating..."} %>
+        <%# <%=@panier.collect { |item| item.to_builder.attributes! }%>
+      <%# <%end%>

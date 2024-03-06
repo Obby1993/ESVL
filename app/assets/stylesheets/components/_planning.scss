@@ -1,0 +1,138 @@
+table {
+  table-layout: fixed;
+  margin: auto;
+  border-collapse: collapse;
+  border: 1px solid grey;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 60px;
+  // margin: 20px 20px 20px 0px;
+}
+@media screen and (max-width: 700px)  {
+  table {
+    display: none;
+  }
+  #ecran-planning {
+    width: 300px;
+    margin: auto;
+    text-wrap: wrap ;
+    margin-bottom: 80px;
+    color: blueviolet;
+  }
+
+}
+@media screen and (min-width: 701px) and (max-width: 1080px) {
+  table {
+    width: 97%;
+  }
+  .coach-planning{
+    display: none;
+  }
+  #ecran-planning {
+    display: none;
+  }
+  .sub-cell{
+    font-size: x-small;
+  }
+}
+@media screen and (min-width: 1080px)  {
+  table {
+    width: 80%;
+  }
+  .sub-cell{
+    font-size: small;
+  }
+
+
+}
+
+#header-table {
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+th,td {
+  border-right: 1px solid grey;
+  // padding: 8px;
+}
+thead th:nth-child(1) {
+  width: 0,5%;
+  // padding: 10px;
+}
+.heure-color {
+  color: #FFFFFF;
+  border-right: none;
+  font-size: 2px;
+}
+thead th:nth-child(2) {
+  width: 15%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 15%;
+}
+thead th:nth-child(5) {
+  width: 15%;
+}
+thead th:nth-child(6) {
+  width: 15%;
+}
+thead th:nth-child(7) {
+  width: 15%;
+}
+thead th:nth-child(8) {
+  width: 15%;
+}
+
+
+ td {
+  margin: 1px;
+  font-size: small;
+
+  >a{
+    color: black;
+  }
+
+}
+.beach {
+  background-color: #FBE506;
+  border-radius: 30px;
+  padding: 10px;
+  // border: solid 1px;
+}
+.granelle {
+  border-radius: 30px;
+  background: rgba(247, 153, 255, 0.7);
+  padding: 10px;
+  // border: solid 1px;
+}
+.romee {
+  background: rgba(95, 219, 195, 0.7);
+  border-radius: 30px;
+  padding: 10px;
+  // border: solid 1px;
+}
+
+.coach_plan{
+  font-size: x-small;
+}
+.h {
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+.multiple-cell {
+  display: flex;
+  justify-content: space-between;
+}
+.sub-cell{
+  // padding: 15px;
+  border-radius: 40px;
+  margin: 1px;
+  width: 50%;
+
+}

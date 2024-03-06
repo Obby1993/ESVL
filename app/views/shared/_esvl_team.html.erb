@@ -1,0 +1,26 @@
+<div class="carte">
+  <div class="img_team"  style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('<%= cl_image_path esvl_team.photo.key, crop: :fill %>')"
+>
+    <h3 class="info_genre_categorie"><%=esvl_team.genre%></h3>
+    <%if esvl_team.categorie == "Sénior"%>
+      <h3 class="info_genre_categorie">Séniors</h3>
+    <% else %>
+      <h3  class="info_genre_categorie">Jeunes</h3>
+    <% end %>
+  </div>
+
+  <div class="info_esvl_team">
+    <h2 id="division"><%=esvl_team.division%></h2>
+    <h3>Entraineur: <%=esvl_team.coach%></h3>
+    <div class="part_2">
+      <%= link_to "Voir l'équipe", esvl_team_path(esvl_team), class: "button"%>
+      <div class="info-part_2">
+        <%= link_to "Calendrier", "https://www.ffvbbeach.org/ffvbapp/resu/vbspo_calendrier.php?saison=2022%2F2023&codent=LICA&poule=RMA&calend=COMPLET&equipe=8&x=9&y=11", class:"link_team_esvl"%>
+        <a href="saison.html#planning" class="link_team_esvl">Planning des entrainements</a>
+
+        <%# <%= link_to "Planning des entrainements","", class:"link_team_esvl" %>
+      </div>
+    </div>
+  </div>
+
+</div>

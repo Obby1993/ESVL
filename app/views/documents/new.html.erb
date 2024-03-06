@@ -1,0 +1,18 @@
+<div class="container py-5" style="margin-top: 40px">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Ajoute ton document</h3>
+
+        <%= simple_form_for @document, url: documents_path, html: { multipart: true } do |form| %>
+          <%= form.input :titre %>
+          <%= form.input :année %>
+          <%= form.input :document, as: :file %>
+
+
+          <%= form.button :submit, class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

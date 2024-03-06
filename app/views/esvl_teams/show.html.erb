@@ -1,0 +1,17 @@
+<div class="contenaire">
+  <h1 class="titre_partie"><%=@esvl_team.division%>   <%=@esvl_team.genre%></h1>
+  <div class="photo-info">
+    <div class="photo-equip">
+      <%= cl_image_tag @esvl_team.photo.key, height: 300, width: 400, crop: :fill %>
+    </div>
+    <div class="info-equipe">
+      <h3>Coach: <%=@esvl_team.coach%></h3>
+      <p>Joueurs: <%=@esvl_team.autre%></p>
+    </div>
+  </div>
+  <div class="lien-equipe">
+    <%= link_to "Calendrier", "https://www.ffvbbeach.org/ffvbapp/resu/vbspo_calendrier.php?saison=2022%2F2023&codent=LICA&poule=RMA&calend=COMPLET&equipe=8&x=9&y=11", class:"button", id:"show-team"%>
+    <%= link_to "Planning des entrainements", saison_path(anchor: "planning"), class:"button", id:"show-team"%>
+    <%# <a href="saison.html#planning" class="button" id="show-team">Planning des entrainements</a> %>
+  </div>
+</div>

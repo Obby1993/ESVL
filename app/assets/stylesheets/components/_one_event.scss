@@ -1,0 +1,74 @@
+// petit ECRAN
+
+@media screen and (max-width: 1023px) {
+  .one-event{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5%;
+  }
+  .image_next1 {
+    display: none;
+  }
+  .link_date {
+    display: flex;
+    justify-content: space-between;
+    height: 32PX;
+  }
+  #link_next1{
+    padding-top: 10px;
+  }
+}
+
+// GRAND ECRAN
+  @media screen and (min-width: 1023px) {
+    .one-event{
+      width: 32%;
+      height: 100%;
+    }
+    .image_next1 {
+      height: 140px;
+      border: 1px;
+      overflow: hidden;
+      background-size: cover;
+      color: aliceblue;
+      // padding: 20px;
+    }
+    .date_event_low_screen{
+      display: none;
+    }
+    }
+
+
+
+.one-event{
+  border:black,solid;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+ }
+
+
+h3{font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  white-space : nowrap;
+  text-overflow : ellipsis;
+  overflow: hidden;
+}
+.info_next1 {
+  background-color: white;
+  padding: 5px 20px 5px 20px;
+  position: relative;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #666666;
+  height: 50%;
+}
+#link_next1{
+  width: 223px;
+  // height: 49px;
+  color: #caca00
+}
+.short_description{
+  overflow: hidden;
+  height: 70px;
+}

@@ -1,0 +1,58 @@
+<div class="contenaire">
+  <h1 class="titre_partie"><%=@event.nom%></h1>
+  <div class="photo-info">
+    <div class="info-event">
+    <p class="date_event"><%=@event.date_event.to_s.to_date.strftime("%d.%m.%Y")%></p>
+    <ul>
+      <li><%=@event.autre%></li>
+      <li>Nombre de joueur par équipe: <span><%=@event.nb_joueur_equipe%></span></li>
+      <li>Nombre d'équipe maximum: <span><%=@event.nb_equipes%></span></li>
+      <li>Prix de l'inscription par équipe: <span><%=@event.price_cents%></span></li>
+    </ul>
+    <p>La date limite d'inscription est le: <span><%=@event.deadline_register.strftime("%d/%m/%Y")%></span></p>
+    <div class="boutons">
+      <%= link_to "S'inscrire", new_event_event_team_path(@event), class:"button"%>
+      <% if user_signed_in? %>
+        <%= button_to "Supprimer", event_path(@event), method: :delete %>
+      <%end%>
+    </div>
+    </div>
+    <div class="photo-equip">
+      <%= cl_image_tag @event.photo.key, height: 500, width: 600, crop: :fill %>
+    </div>
+  </div>
+  <div class="equipe-inscrite">
+    <h2>EQUIPE INSCRITE</h2>
+    <table id="tab-inscription">
+      <thead>
+        <tr>
+          <th class="entete">INSCRIT LE</th>
+          <th class="entete">NOM D'EQUIPE</th>
+          <th class="entete">CAPITAINE</th>
+          <th class="entete">NOMBRE DE JOUEUR</th>
+          <th class="entete">PAYE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @event.event_teams.each do |team|%>
+          <tr>
+            <td class="cellule"><%=team.created_at.strftime("%d/%m/%Y")%></td>
+            <td class="cellule"><%=team.nom_equipe%></td>
+            <td class="cellule"><%=team.nom_capitaine%></td>
+            <td class="cellule"><%=team.nb_joueur%></td>
+            <td class="cellule">Non</td>
+          </tr>
+        <% end %>
+        <!-- Ajoutez plus de lignes pour chaque enregistrement de votre tableau -->
+      </tbody>
+    </table>
+
+  </div>
+  <div class="autres-events">
+    <h1 class="titre_partie">D'AUTRES EVENEMENTS</h1>
+    <div class="next3">
+      <%=render "shared/next3event", ordres: @ordres%>
+    </div>
+    <%= link_to "Voir tous les événements", events_path(), class: "button"%>
+  </div>
+</div>

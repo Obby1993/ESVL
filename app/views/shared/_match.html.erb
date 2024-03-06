@@ -1,0 +1,9 @@
+<div class="match">
+  <div class="date">
+    <h3><%=next_game.day.day%><br><%=@mois_en_lettres[next_game.day.month]%></h3>
+  </div>
+  <div class="info-match">
+    <h3><%=next_game.team_a%>     <span>vs</span>     <%=next_game.team_b%></h3>
+    <p class="salle-heure">A la salle: <%=next_game.lieu%>  à <%=next_game.heure.hour%>h<%=next_game.heure.min%></p>
+  </div>
+</div>

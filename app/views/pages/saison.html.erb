@@ -1,0 +1,76 @@
+<div class="contenaire">
+   <div class="partie_banner">
+  <div class="partie", id="banner"></div>
+  <div class="partie_h4">
+    <h4>L'ESVL VOUS<BR>ACCOMPAGNE EN<BR>DEBUT DE SAISON</h4>
+  </div>
+ </div>
+  <div class="barre">
+      <ul id="ligne">
+        <li class="valeur", id="page_active">DEBUT DE SAISON</li>
+        <li class="valeur"><a href="#documents">DOCUMENTS UTILES</a></li>
+        <li class="valeur"><a href="#planning">PLANNING DES ENTRAINEMENTS</a></li>
+        <li class="valeur"><a href="#localisation">LOCALISATION DES GYMNASES</a></li>
+      </ul>
+    </div>
+
+  <div id="documents">
+    <div class="documents">
+    <div class="doc_utiles">
+      <h1 class=titre_partie>DOCUMENTS UTILES</h1>
+        <%# <a href="/pdf/Formulaire_demande_licences_2023_2024.pdf" download="Formulaire_demande_licences_2023_2024.pdf">Formulare de licences 2023-2024</a>
+        <a class="voir"href="/pdf/Formulaire_demande_licences_2023_2024.pdf">Voir</a> %>
+       <%@documents.each do |doc| %>
+        <div class="link_dl_doc">
+          <%= link_to doc.titre, url_for(doc.document), dowload:true %>
+          <%= link_to url_for(doc.document), target: '_blank', data: { turbolinks: false }, disposition: 'inline', class:"voir" do %>
+            <i class="fa-regular fa-eye"></i> Voir
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="aide-fi">
+      <h3>Aides Financières</h3>
+      <p>Des aides financières sont disponibles pour vous aider à payer votre adhésion sportive.</p>
+      <div class="lien-aide-fi">
+        <a href="https://www.aide-sociale.fr/coupons-sport-ancv/" class="button" id="bouton-aidefi"> Le coupon sport</a>
+
+        <a class="button" id="bouton-aidefi" href="https://www.caf.fr/allocataires/caf-de-la-haute-savoie/actualites-departementales/le-pass-sport-revient-pour-la-saison-2022-2023"> Le pass'loisir</a>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div id="planning">
+
+    <h1 class=titre_partie id="titre-planning">PLANNING DES ENTRAINEMENTS</h1>
+    <%=render "shared/planning", entrainements: @entrainements%>
+
+    <div class="legende">
+      <%@gymnases.each do |g|%>
+        <div class="gym">
+          <%if g.nom == "Romée"%>
+            <div class="color romee"></div>
+          <% elsif g.nom == "Beach Volley" %>
+            <div class="color beach"></div>
+          <% else %>
+            <div class="color granelle"></div>
+          <% end %>
+          <div class="info-gym">
+            <h3><%=g.nom%></h3>
+            <%=g.address%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div id="localisation">
+    <h1 class=titre_partie>Localisation du club</h1>
+    <div style="width: 80%; height: 600px; background-color: grey; margin:auto;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+</div>

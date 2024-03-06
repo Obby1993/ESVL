@@ -1,0 +1,122 @@
+    <%def photo_default(exemple)%>
+      <%if exemple.photo.key?%>
+        <%cl_image_tag exemple.photo.key%>
+      <%else%>
+        <%image_tag "images/logo_esvl.png"%>
+      <%end%>
+    <%end%>
+
+  <% page = "LE CLUB"%>
+  <% p1 = "Prochains événements" %>
+  <% p2 = "Histoire du club" %>
+  <% p3 = "Organigramme" %>
+
+<div class="contenaire">
+
+
+
+   <div class="partie_banner">
+  <div class="partie", id="banner"></div>
+  <div class="partie_h4">
+    <h4>L'ESVL, BIEN PLUS<BR>QU'UN CLUB!</h4>
+  </div>
+ </div>
+  <div class="barre">
+      <ul id="ligne">
+        <li class="valeur", id="page_active">LE CLUB</li>
+        <li class="valeur"><a href="#event">PROCHAINS EVENEMENTS</a></li>
+        <%# <img class="deco" src="../../assets/images/ligne_boule.png" alt="décoration" /> %>
+        <li class="valeur"><a href="#histoire">HISTOIRE DU CLUB</a></li>
+        <li class="valeur"><a href="#partie-employe">ORGANIGRAMME</a></li>
+      </ul>
+    </div>
+
+
+
+<div class="events">
+  <%=render "shared/next_events"%>
+</div>
+
+
+
+
+
+  <div id="histoire">
+    <h1 class="titre_partie">HISTOIRE DU CLUB</h1>
+    <div class="articles">
+      <div class="article_histoire">
+        <div class="texte_article">
+          <h2>1990 CREATION DU CLUB ESVL VOLLEY</h2>
+          <p>Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le poème.</p>
+        </div>
+        <div class="image_article">
+        </div>
+      </div>
+      <div class="article_histoire", id="second_article">
+        <div  class="second_image"></div>
+          <div class="texte_article", id="second_text_article">
+            <h2>AGE D'OR DE L'ESVL</h2>
+            <p>Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le poème.</p>
+          </div>
+      </div>
+      <div class="article_histoire">
+        <div class="texte_article">
+          <h2>SECTION BEACH VOLLEY</h2>
+          <p>Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le poème.</p>
+        </div>
+        <div class="image_article"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="partie-employe">
+    <h1 class="titre_partie">ORGANIGRAMME</h1>
+    <div class="employé">
+      <h2>COMITE DE DIRECTION</h2>
+      <div class="trombinoscope">
+        <%@employes_direction.each do |employe|%>
+          <div class="personne">
+            <div class="avatar">
+              <%=photo_default(employe)%>
+            </div>
+            <div class="info_personne">
+              <h3><%=employe.poste.upcase%></h3>
+              <p><%=employe.nom.capitalize%>  <%=employe.prenom.capitalize%></p>
+            </div>
+          </div>
+        <%end%>
+      </div>
+
+      <h2>ENTRAINEURS</h2>
+      <div class="trombinoscope">
+        <%@employes_entraineur.each do |employe|%>
+          <div class="personne">
+            <div class="avatar">
+              <%=photo_default(employe)%>
+            </div>
+            <div class="info_personne">
+              <h3><%=employe.poste.upcase%></h3>
+              <p><%=employe.nom.capitalize%>  <%=employe.prenom.capitalize%></p>
+            </div>
+          </div>
+        <%end%>
+      </div>
+
+      <h2>BENEVOLES</h2>
+      <div class="trombinoscope">
+        <%@employes_benevole.each do |employe|%>
+          <div class="personne">
+            <div class="avatar">
+              <%=photo_default(employe)%>
+            </div>
+            <div class="info_personne">
+              <h3><%=employe.poste.upcase%></h3>
+              <p><%=employe.nom.capitalize%>  <%=employe.prenom.capitalize%></p>
+            </div>
+          </div>
+        <%end%>
+      </div>
+  </div>
+
+</div>
