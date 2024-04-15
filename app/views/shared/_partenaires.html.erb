@@ -21,14 +21,14 @@
 
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <% if @partenaires_year.length > 3  %>
+        <% if partenaires.length > 3  %>
           <div class="carousel-item active slide">
             <%# <img src="..." class="d-block w-100" alt="..."> %>
-            <% @partenaires_year.slice(0..2).each do |logo|%>
+            <% partenaires.slice(0..2).each do |logo|%>
               <%= cl_image_tag logo.photo.key, height: 150, width: 150, crop: :fill, class: "image_partenaire" %>
             <% end %>
           </div>
-          <%@partenaires_year.slice(3...).each_slice(3) do |slide| %>
+          <%partenaires.slice(3...).each_slice(3) do |slide| %>
             <div class="carousel-item slide">
               <%# <img src="..." class="d-block w-100" alt="..."> %>
               <%slide.each do |partenaire| %>
@@ -39,7 +39,7 @@
         <% else %>
           <div class="carousel-item active slide">
             <%# <img src="..." class="d-block w-100" alt="..."> %>
-            <% @partenaires_year.each do |logo|%>
+            <% partenaires.each do |logo|%>
               <%= cl_image_tag logo.photo.key, height: 150, width: 150, crop: :fill, class: "image_partenaire" %>
             <% end %>
           </div>
