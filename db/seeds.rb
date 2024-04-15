@@ -25,7 +25,7 @@ prenat_feminin.save
 region_masculin = EsvlTeam.new(année: 2022, division: "R2", genre: "masculin", coach: "Charlie Kaing", joueurs: "Charlie Kaing, Jérémie l'embrouille, Christopher BG, Tom Sauvignon, Dams", autre: "Saison en cours")
 region_masculin.save
 
-president = User.new(email: "president@esvl.com", password: "presidentEsvl", fonction:"président")
+president = User.new(email: "president@esvl.com", password: "presidentESVL", fonction:"président")
 president.save!
 
 # event1 = Event.new(nom: "Tournoi de l'ascension", nb_equipes: 24, date_event: Date.today + 15, deadline_register: Date.today + 10, genre: "Mixte", nb_joueur_equipe: 4, price_cents: 4000, user: president )

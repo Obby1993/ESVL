@@ -5,10 +5,10 @@ require "rails/all"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-config.action_cable.mount_path = '/cable'
 
 module ESVL
   class Application < Rails::Application
+    config.action_cable.mount_path = '/cable'
     config.generators do |generate|
       generate.assets false
       generate.helper false
