@@ -3,7 +3,7 @@
       <%if @ordres.length === 1 %>
         <div id="next">
           <div class="image_next"
-                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_tag @ordres[0].photo.key, crop: :fill %>')">
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @ordres[0].photo.key, crop: :fill %>')">
             <p class="date_event"><%=@ordres[0].date_event.strftime("%d/%m/%Y")%></p>
           </div>
           <div class="info_next">
