@@ -6,6 +6,7 @@ class Article < ApplicationRecord
   monetize :price, as: :price_cents
 
   validates :titre, presence: true
+  validates :currency, presence: true
   # validates :genre, inclusion: { in: ["Homme", "Femme", "Homme / Femme", "Pas de genre"] }
   validates :price, numericality: { greater_than_or_equal_to: 0 }
   validates :remarque, length: { maximum: 500 }
