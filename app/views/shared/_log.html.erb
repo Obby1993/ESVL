@@ -26,7 +26,12 @@
           <li>
             <%=link_to "Ajouter des matchs", new_next_game_path, class:"" %>
           </li>
-
+          <li>
+            <%=link_to "Ajouter des entrainements", new_entrainement_path, class:"" %>
+          </li>
+          <li>
+            <%=link_to "Ajouter des gymnases", new_gymnase_path, class:"" %>
+          </li>
           <li>
             <%= button_to "Log out", destroy_user_session_path, method: :delete %>
           </li>
