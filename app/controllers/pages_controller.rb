@@ -105,15 +105,21 @@ class PagesController < ApplicationController
     @semaine = %w[Lundi Mardi Mercredi Jeudi Vendredi Samedi Dimanche]
     @documents = Document.where(année: DateTime.now.year)
 
+
     @gymnases = Gymnase.all
     @markers = @gymnases.geocoded.map do |gymnase|
       {
         lat: gymnase.latitude,
         lng: gymnase.longitude,
-        info_window: render_to_string(partial: "shared/info_window", locals: {gymnase: gymnase})
+        info_window_html: render_to_string(partial: "info_window", locals: { gymnase: gymnase })
       }
+
     end
+
   end
+
+
+
 
 
   def contact

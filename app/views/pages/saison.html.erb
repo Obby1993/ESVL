@@ -66,11 +66,11 @@
       <% end %>
     </div>
   </div>
+
   <div id="localisation">
     <h1 class=titre_partie>Localisation du club</h1>
-    <div style="width: 80%; height: 600px; background-color: grey; margin:auto;"
+
+   <div style="width: 50%; height: 600px; margin: 100px auto;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </div>
-</div>
