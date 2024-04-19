@@ -111,7 +111,7 @@ class PagesController < ApplicationController
       {
         lat: gymnase.latitude,
         lng: gymnase.longitude,
-        # info_window_html: render_to_string(partial: "info_window", locals: { gymnase: gymnase })
+        info_window_html: render_to_string(partial: "info_window", locals: { gymnase: gymnase })
       }
 
     end
