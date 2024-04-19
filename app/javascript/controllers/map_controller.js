@@ -15,7 +15,7 @@ export default class extends Controller {
 
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       console.log();
-      const customMarker = this.createCustomMarker();
+      // const customMarker = this.createCustomMarker();
       // const customMarker = document.createElement("div")
       // customMarker.className = "marker"
       // customMarker.style.backgroundImage = `url('${markerImageUrl}')`
@@ -32,7 +32,7 @@ export default class extends Controller {
   createCustomMarker() {
     const customMarker = document.createElement('div');
     customMarker.className = 'custom-marker';
-    customMarker.style.backgroundImage = 'url(/assets/logo_esvl_transparent.png)';
+    customMarker.style.backgroundImage = 'url(/assets/images/logo_esvl_transparent.png)';
     customMarker.style.backgroundSize = 'cover';
     customMarker.style.width = '50px';
     customMarker.style.height = '50px';
