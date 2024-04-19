@@ -28,5 +28,7 @@ region_masculin.save
 president = User.new(email: "president@esvl.com", password: "presidentESVL", fonction:"président")
 president.save!
 
+esvl_beach_volley = Gymnase.new(nom: "ESVL Beach Volley", address: "Esplanade Joséphine Baker, 06270 Villeneuve-Loubet", latitude: 43.636983637849596, longitude: 7.140013575553894)
+esvl_beach_volley.save
 # event1 = Event.new(nom: "Tournoi de l'ascension", nb_equipes: 24, date_event: Date.today + 15, deadline_register: Date.today + 10, genre: "Mixte", nb_joueur_equipe: 4, price_cents: 4000, user: president )
 # event1.save!
