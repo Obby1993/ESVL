@@ -23,6 +23,7 @@ export default class extends Controller {
       // customMarker.style.width = "35px"
       // customMarker.style.height = "35px"
       // customMarker
+      const customMarker = this.createCustomMarker();
       new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
