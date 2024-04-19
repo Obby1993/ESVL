@@ -34,9 +34,8 @@
     <%= link_to "Voir la boutique", articles_path, class: "button", id:"big_button"%>
   </div>
 
-  <%if  @partenaires_year.present?%>
+
   <div class="partenaires">
     <%=render "shared/partenaires", partenaires: @partenaires_year%>
   </div>
-  <% end %>
 </div>
