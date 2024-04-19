@@ -33,7 +33,7 @@ export default class extends Controller {
   createCustomMarker() {
     const customMarker = document.createElement('div');
     customMarker.className = 'custom-marker';
-    customMarker.style.backgroundImage = 'url(/assets/logo_esvl_transparent.png)';
+    customMarker.style.backgroundImage = 'url(/assets/logo_esvl_transparent-173c80f188b209f5f8be06286fc6f30ee94384cc9f7cf1c24d1e0ca8ffbe1a73.png)';
     customMarker.style.backgroundSize = 'cover';
     customMarker.style.width = '50px';
     customMarker.style.height = '50px';
